@@ -54,7 +54,7 @@ function SignUpCustomer() {
         var lastName=/^[A-Za-z]+$/;    //alpha characters without space and min 1 char
         var userName=/^[A-Za-z][A-Za-z0-9_]{7,29}$/;  //start with alpha,min 8 char,alphanum and _
         var address=/[A-Za-z0-9'\.\-\s\,]/;
-        var phone=/[1-9]{10}/;  //10 digits
+        var phone=/[1-9]{1}[0-9]{9}/;  //10 digits
         var email=/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
         var aadhar=/^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/;
         

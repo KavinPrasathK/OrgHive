@@ -7,7 +7,7 @@ import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
 import LoginCustomer from "./pages/LoginCustomer/LoginCustomer";
 import LoginOrganizer from './pages/LoginOrganizer/LoginOrganizer';
 import Landing from "./pages/Landing/Landing";
-import Navbar from "./components/Navbar/Navbar";
+// import Navbar from "./components/Navbar/Navbar";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import ProfileCustomer from './pages/ProfileCustomer/ProfileCustomer';
 import ProfileOrganizer from './pages/ProfileOrganizer/ProfileOrganizer';
@@ -39,7 +39,6 @@ function App() {
 
 
   return (
-    
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
       <StyledApp>
@@ -48,7 +47,7 @@ function App() {
           {/* <loginContext.Provider  value={{loginstate,setloginstate}} /> */}
 
           <Router>
-            <Navbar />
+            {/* <Navbar /> */}
             {/* {isOrganizer?<OrgRoutes/>:<CustRoutes/>} */}
             {x==1?<LogoutRoutes/>:<Dummy/>}
             {x==2?<OrgRoutes/>:<Dummy/>}

@@ -1,5 +1,5 @@
-import React from "react"
-import styles from "./Landing-style.css"
+import React from "react";
+import styles from "./Landing-style.css";
 import Navbar from "../../components/Navbar/Navbar";
 import ButtonCust from "../../components/Button/ButtonCust";
 import ButtonOrg from "../../components/Button/ButtonOrg";
