@@ -1,0 +1,35 @@
+body{
+    margin:0;
+    height:100%;
+    width:100%;
+}
+.headerText{
+    color:white;
+    text-align: center;
+    margin: 10vh auto;
+    width:60%;
+}
+.header{
+    margin:0;
+    padding: 0;
+    height: 70vh;
+    width: 100vw;
+    background: linear-gradient(-45deg,#f37149,#f51269 ,#e73c7e, #23a6d5,#1492cc ,#23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 35s linear infinite;
+}
+.button{
+    text-align: center;
+    margin: auto;
+}
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

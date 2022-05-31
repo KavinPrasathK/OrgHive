@@ -7,7 +7,7 @@ import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
 import LoginCustomer from "./pages/LoginCustomer/LoginCustomer";
 import LoginOrganizer from './pages/LoginOrganizer/LoginOrganizer';
 import Landing from "./pages/Landing/Landing";
-import Navbar from "./components/Navbar/Navbar";
+// import Navbar from "./components/Navbar/Navbar";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import ProfileCustomer from './pages/ProfileCustomer/ProfileCustomer';
 import ProfileOrganizer from './pages/ProfileOrganizer/ProfileOrganizer';
@@ -40,7 +40,6 @@ function App() {
 
 
   return (
-    
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
       <StyledApp>
@@ -50,6 +49,7 @@ function App() {
           
           <Router>
             {/* {localStorage.getItem('loginState')==1?<Navbar />:<Dummy/>} */}
+            {/* <Navbar /> */}
             {/* {isOrganizer?<OrgRoutes/>:<CustRoutes/>} */}
             {localStorage.getItem('loginState')==1?<LogoutRoutes/>:<Dummy/>}
             {localStorage.getItem('loginState')==2?<OrgRoutes/>:<Dummy/>}
