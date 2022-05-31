@@ -5,7 +5,7 @@ import "react-notifications-component/dist/theme.css";
 import { toastNotification } from "../../components/Notifications/toast";
 import { apiSignUpOrganizer } from "../../auth/auth";
 import { useNavigate } from "react-router-dom";
-var randomstring = require('randomstring');
+// var randomstring = require('randomstring');
 
 function SignUpOrganizer() {
   var navigate = useNavigate();
@@ -42,7 +42,6 @@ function SignUpOrganizer() {
       console.log(key+" "+data[key]);
       switch(key){
         case "name":
-          console.log(data.name);
           if (!name.test(data[key])){
             Store.addNotification({...toastNotification,message:'Enter a valid '+key, flag:'danger'});
             return false;
@@ -86,6 +85,12 @@ function SignUpOrganizer() {
             return false;
           }
           break;
+        case "password":
+          if(data[key].length<8){
+              Store.addNotification({...toastNotification,message:'Password should be atleast 8 characters long',flag:'danger'})
+              return false;
+          }
+          break;
       }
     }
     return true;
@@ -95,8 +100,7 @@ function SignUpOrganizer() {
     var data = {...signUpOrganizerData};
     var x = formValidate(data);
     // var orgID = randomstring.generate(7);
-    var orgID = 'asd';
-
+    var orgID = "hjh89Ki";
     var data = {...signUpOrganizerData,orgId : orgID};
     console.log(data);
     if (x){
@@ -111,7 +115,7 @@ function SignUpOrganizer() {
 
   return (
     <div>
-      <label>Organization Name : <input type='text' name='name' onChange={handleChange} value={signUpOrganizerData.name} required/></label><br/>
+        <label>Organization Name : <input type='text' name='name' onChange={handleChange} value={signUpOrganizerData.name} required/></label><br/>
         <label>Manager Name: <input type='text' name='manager' onChange={handleChange} value={signUpOrganizerData.manager} /></label><br/>
         <label>Contact Number 1: <input type='text' name='contact1' onChange={handleChange} value={signUpOrganizerData.contact1} required/></label><br/>
         <label>Contact Number 2: <input type='text' name='contact2' onChange={handleChange} value={signUpOrganizerData.contact2} /></label><br/>
