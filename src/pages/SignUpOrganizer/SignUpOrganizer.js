@@ -61,7 +61,7 @@ function SignUpOrganizer() {
           }
           break;
         case "contact2":
-          if (contact2!==""){
+          if (data.contact2!==""){
             if (!contact2.test(data[key])){
               Store.addNotification({...toastNotification,message:'Enter a valid '+key, flag:'danger'});
               return false;
@@ -94,7 +94,9 @@ function SignUpOrganizer() {
   const onSubmit = async () => {
     var data = {...signUpOrganizerData};
     var x = formValidate(data);
-    var orgID = randomstring.generate(7);
+    // var orgID = randomstring.generate(7);
+    var orgID = 'asd';
+
     var data = {...signUpOrganizerData,orgId : orgID};
     console.log(data);
     if (x){
