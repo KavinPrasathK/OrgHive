@@ -5,7 +5,7 @@ import "react-notifications-component/dist/theme.css";
 import { toastNotification } from "../../components/Notifications/toast";
 import { apiSignUpOrganizer } from "../../auth/auth";
 import { useNavigate } from "react-router-dom";
-// var randomstring = require('randomstring');
+import cryptoRandomString from 'crypto-random-string';
 
 function SignUpOrganizer() {
   var navigate = useNavigate();
@@ -99,8 +99,7 @@ function SignUpOrganizer() {
   const onSubmit = async () => {
     var data = {...signUpOrganizerData};
     var x = formValidate(data);
-    // var orgID = randomstring.generate(7);
-    var orgID = "hjh89Ki";
+    var orgID = 'ORG'+cryptoRandomString({length:5, type:'alphanumeric'})+cryptoRandomString({length:2, type:'numeric'});
     var data = {...signUpOrganizerData,orgId : orgID};
     console.log(data);
     if (x){

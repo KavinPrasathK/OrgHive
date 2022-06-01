@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 
-
 import SignUpCustomer from './pages/SignUpCustomer/SignUpCustomer';
 import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
 import LoginCustomer from "./pages/LoginCustomer/LoginCustomer";
@@ -24,9 +23,6 @@ import {darkTheme,lightTheme,GlobalStyles} from './themes';
 import styled,{ ThemeProvider } from 'styled-components';
 import React from 'react';
 const StyledApp = styled.div``;
-
-
-
 
 function App() {
   var x;
