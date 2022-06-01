@@ -6,7 +6,6 @@ import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
 import LoginCustomer from "./pages/LoginCustomer/LoginCustomer";
 import LoginOrganizer from './pages/LoginOrganizer/LoginOrganizer';
 import Landing from "./pages/Landing/Landing";
-// import Navbar from "./components/Navbar/Navbar";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import ProfileCustomer from './pages/ProfileCustomer/ProfileCustomer';
 import ProfileOrganizer from './pages/ProfileOrganizer/ProfileOrganizer';
@@ -21,17 +20,19 @@ import {
 } from "react-router-dom";
 import {darkTheme,lightTheme,GlobalStyles} from './themes';
 import styled,{ ThemeProvider } from 'styled-components';
-import React from 'react';
+import React,{useEffect} from 'react';
 const StyledApp = styled.div``;
+var x;
 
 function App() {
-  var x;
-  if(localStorage.getItem('loginstate')){
-    x=localStorage.getItem('loginstate');
+  if(localStorage.getItem('loginState')){
+    x=localStorage.getItem('loginState');
   }else{
+    localStorage.setItem('loginState',1);
     x=1;
+    console.log('hiii');
   }
-  const [loginstate,setloginstate]=React.useState(x);
+  
 
 
   return (
@@ -41,17 +42,17 @@ function App() {
       <div className="App">
           <ReactNotifications />
           {/* <loginContext.Provider  value={{loginstate,setloginstate}} /> */}
-
+          
           <Router>
+            {/* {localStorage.getItem('loginState')==1?<Navbar />:<Dummy/>} */}
             {/* <Navbar /> */}
             {/* {isOrganizer?<OrgRoutes/>:<CustRoutes/>} */}
-            {x==1?<LogoutRoutes/>:<Dummy/>}
-            {x==2?<OrgRoutes/>:<Dummy/>}
-            {x==3?<CustRoutes/>:<Dummy/>}
+            {localStorage.getItem('loginState')==1?<LogoutRoutes/>:<Dummy/>}
+            {localStorage.getItem('loginState')==2?<OrgRoutes/>:<Dummy/>}
+            {localStorage.getItem('loginState')==3?<CustRoutes/>:<Dummy/>}
             {/* {isLogin?<LoginRoutes/>:<LogoutRoutes/>} */}
             {/* <AllRoutes /> */}
           </Router>
-        {/* <loginContext.Provider/> */}
       </div>
       </StyledApp>
     </ThemeProvider>
@@ -70,7 +71,6 @@ const Dummy = () =>{
 // const AllRoutes = () => {
 //   return (
 //     <Routes>
- 
       
 //     </Routes>
 //   );
@@ -122,6 +122,5 @@ const LogoutRoutes = () =>{
 //     </Routes>
 //   )
 // }
-
 
 export default App;

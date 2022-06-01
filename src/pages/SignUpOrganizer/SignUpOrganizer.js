@@ -101,14 +101,14 @@ function SignUpOrganizer() {
     var x = formValidate(data);
     var orgID = 'ORG'+cryptoRandomString({length:5, type:'alphanumeric'})+cryptoRandomString({length:2, type:'numeric'});
     var data = {...signUpOrganizerData,orgId : orgID};
-    console.log(data);
+    // console.log(data);
     if (x){
       const res = await apiSignUpOrganizer(data);
-      console.log(res);
       if (res.status>=200 && res.status<=299){
         navigate('/');
       }
-      Store.addNotification({...toastNotification,message:res.data.message,flag:res.data.flag});
+      // console.log(res.data.message,+res.data.flag);
+      Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag});
     };  
   }
 

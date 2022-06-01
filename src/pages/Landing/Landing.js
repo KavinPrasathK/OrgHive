@@ -1,4 +1,6 @@
-import React from "react";
+import React,{useContext} from 'react'
+// import styles from "./Landing.module.css"
+// import React from "react";
 import styles from "./Landing-style.css";
 import Navbar from "../../components/Navbar/Navbar";
 import ButtonCust from "../../components/Button/ButtonCust";
