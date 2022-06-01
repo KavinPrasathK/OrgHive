@@ -102,14 +102,14 @@ function SignUpOrganizer() {
     // var orgID = randomstring.generate(7);
     var orgID = "hjh89Ki";
     var data = {...signUpOrganizerData,orgId : orgID};
-    console.log(data);
+    // console.log(data);
     if (x){
       const res = await apiSignUpOrganizer(data);
-      console.log(res);
       if (res.status>=200 && res.status<=299){
         navigate('/');
       }
-      Store.addNotification({...toastNotification,message:res.data.message,flag:res.data.flag});
+      // console.log(res.data.message,+res.data.flag);
+      Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag});
     };  
   }
 
