@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React from 'react'
 import styles from "./LoginCustomer.module.css"
 import {apiLoginCustomer}  from '../../auth/auth';
 import { ReactNotifications, Store } from 'react-notifications-component'
@@ -27,8 +27,9 @@ function Login() {
       console.log(res.data);
       // console.log(res.status)
       if(res.status>=200 && res.status<=299){
+        localStorage.clear();
         localStorage.setItem('userName',data.userName);
-        // window.location.href='/';
+        localStorage.setItem('loginState',3);
         navigate('/');
       }
       Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag})

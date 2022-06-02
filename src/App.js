@@ -67,16 +67,6 @@ const Dummy = () =>{
   )
 }
 
-
-// const AllRoutes = () => {
-//   return (
-//     <Routes>
-      
-//     </Routes>
-//   );
-// };
-
-
 const CustRoutes = () => {
   return (
     <Routes>
@@ -94,7 +84,6 @@ const OrgRoutes = () =>{
       <Route path="/" element={<Landing />} />
       <Route path='/profile' element={<ProfileOrganizer/>}/>
       <Route path="/*" element={<PageNotFound />} />
-
     </Routes>
   )
 }
@@ -105,22 +94,12 @@ const LogoutRoutes = () =>{
       <Route path="/" element={<Landing />} />
       <Route path='/SignUpCustomer' element={<SignUpCustomer/>}/>
       <Route path='/SignUpOrganizer' element={<SignUpOrganizer/>}/>
-       <Route path="/loginCustomer" element={<LoginCustomer />} />
+      <Route path="/loginCustomer" element={<LoginCustomer />} />
       <Route path="/loginOrganizer" element={<LoginOrganizer/>} />
       <Route path="/profile" element={<PlsLogin />} />
       <Route path="/*" element={<PageNotFound />} />
-
     </Routes>
   )
 }
-
-// const LoginRoutes = () =>{
-//   return (
-//     <Routes>
-//       {isOrganizer?<OrgRoutes/>:<CustRoutes/>}
-//       <Route path="/*" element={<PageNotFound />} />
-//     </Routes>
-//   )
-// }
 
 export default App;

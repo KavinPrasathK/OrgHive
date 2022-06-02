@@ -15,8 +15,8 @@ function Landing(){
                 <h4>A Site with more than 100+ Professional Event Organisers</h4>
             </div>
             <div className="button">
-                <a href="/SignUpCustomer"><ButtonCust text="Login as Customer"/></a>
-                <a href="/SignUpOrganizer"><ButtonOrg text="Login as Organizer"/></a>
+                <a href="/loginCustomer"><ButtonCust text="Login as Customer"/></a>
+                <a href="/loginOrganizer"><ButtonOrg text="Login as Organizer"/></a>
             </div>
         </div>
     );

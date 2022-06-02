@@ -18,7 +18,25 @@ function SignUpOrganizer() {
       address:"",
       gstin:"",
       password:""
-  })
+  });
+  const [ events , setEvents ] = useState({
+    birthday:false,
+    wedding:false,
+    party:false,
+    official:false,
+    culturals:false,
+    conferences:false,
+    exhibition:false,
+    openings:false,
+    promotion:false,
+    launch:false,
+    musical:false,
+    tournaments:false,
+    stageshow:false,
+    political:false,
+    others:false
+  });
+
 
   function handleChange(event){
     setSignUpOrganizerData((prevData)=>{
@@ -28,8 +46,16 @@ function SignUpOrganizer() {
       }
     });
   }
+  function handleEvent(event){
+      setEvents((prevData)=>{
+        return {
+          ...prevData,
+          [event.target.name]:(event.target.checked)
+        }
+      });
+  }
 
-  function formValidate(data){
+  function formValidate(data,eventData){
     var name=/[a-zA-Z]/;
     var manager=/[a-zA-Z]/;
     var contact1=/[1-9]{1}[0-9]{9}/;
@@ -87,20 +113,30 @@ function SignUpOrganizer() {
           break;
         case "password":
           if(data[key].length<8){
-              Store.addNotification({...toastNotification,message:'Password should be atleast 8 characters long',flag:'danger'})
+              Store.addNotification({...toastNotification,message:'Password should atleast be 8 characters long',flag:'danger'})
               return false;
           }
           break;
       }
+    }
+    var count=0;
+    for (let key in eventData){
+      if (eventData[key]) count++;
+    }
+    if (count===0){
+      Store.addNotification({...toastNotification,message:'Select atleast one Event you organize!',flag:'danger'})
+      return false;
     }
     return true;
   }
 
   const onSubmit = async () => {
     var data = {...signUpOrganizerData};
-    var x = formValidate(data);
+    var eventData = {...events};
+    console.log(eventData);
+    var x = formValidate(data,eventData);
     var orgID = 'ORG'+cryptoRandomString({length:5, type:'alphanumeric'})+cryptoRandomString({length:2, type:'numeric'});
-    var data = {...signUpOrganizerData,orgId : orgID};
+    data = {...signUpOrganizerData,eventsdata:eventData,orgId : orgID};
     // console.log(data);
     if (x){
       const res = await apiSignUpOrganizer(data);
@@ -121,7 +157,23 @@ function SignUpOrganizer() {
         <label>Mail ID : <input type='email' name="email" onChange={handleChange} value={signUpOrganizerData.email} required/></label><br/>
         <label>Address : <textarea name='address' onChange={handleChange} value={signUpOrganizerData.address}/></label><br/>
         <label>GSTIN : <input type='text' name="gstin" onChange={handleChange} value={signUpOrganizerData.gstin} /></label><br/>
-        <label>Password : <input type='password' name='password' onChange={handleChange} val={signUpOrganizerData.password} /></label><br/>
+        <label>Password : <input type='password' name='password' onChange={handleChange} value={signUpOrganizerData.password} /></label><br/>
+        <label>Events you organize: </label><br/>
+        <input type='checkbox' name="birthday" value={events.birthday} checked={events.birthday} onChange={handleEvent} />Birthday<br/>
+        <input type='checkbox' name="wedding" value={events.wedding} checked={events.wedding} onChange={handleEvent} />Wedding<br/>
+        <input type='checkbox' name="party" value={events.party} checked={events.party} onChange={handleEvent} />Parties<br/>
+        <input type='checkbox' name="official" value={events.official} checked={events.official} onChange={handleEvent} />Official meetings<br/>
+        <input type='checkbox' name="culturals" value={events.culturals} checked={events.culturals} onChange={handleEvent} />Culturals<br/>
+        <input type='checkbox' name="conferences" value={events.conferences} checked={events.conferences} onChange={handleEvent} />Conferences<br/>
+        <input type='checkbox' name="exhibition" value={events.exhibition} checked={events.exhibition} onChange={handleEvent} />Exhibitions<br/>
+        <input type='checkbox' name="openings" value={events.openings} checked={events.openings} onChange={handleEvent} />Openings<br/>
+        <input type='checkbox' name="promotion" value={events.promotion} checked={events.promotion} onChange={handleEvent} />Brand Promotions<br/>
+        <input type='checkbox' name="launch" value={events.launch} checked={events.launch} onChange={handleEvent} />Product Launch<br/>
+        <input type='checkbox' name="musical" value={events.musical} checked={events.musical} onChange={handleEvent} />Musical<br/>
+        <input type='checkbox' name="tournaments" value={events.tournaments} checked={events.tournaments} onChange={handleEvent} />Sports Tournaments<br/>
+        <input type='checkbox' name="stageshow" value={events.stageshow} checked={events.stageshow} onChange={handleEvent} />Stage Shows<br/>
+        <input type='checkbox' name="political" value={events.political} checked={events.political} onChange={handleEvent} />Political Conventions<br/>
+        <input type='checkbox' name="others" value={events.others} checked={events.others} onChange={handleEvent} />Others<br/>
         <input type='button' onClick={onSubmit} value='SignUp'/>
     </div>
   );
