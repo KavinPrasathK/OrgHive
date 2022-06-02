@@ -7,6 +7,7 @@ import ButtonCust from "../../components/Button/ButtonCust";
 import ButtonOrg from "../../components/Button/ButtonOrg";
 
 function Landing(){
+    console.log(document.getElementsByClassName("button"));
     return(
         <div className="header">
             <Navbar />

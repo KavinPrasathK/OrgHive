@@ -5,7 +5,7 @@ import { faCreativeCommonsBy } from '@fortawesome/free-brands-svg-icons';
 
 function ButtonCust(props){
         return (
-        <button className="button-cust" onClick=""><FontAwesomeIcon icon={faCreativeCommonsBy} className="icon"/>{props.text}</button>
+        <button className="button-cust" onClick={props.func}><FontAwesomeIcon icon={faCreativeCommonsBy} className="icon"/>{props.text}</button>
         );
 }
 export default ButtonCust;

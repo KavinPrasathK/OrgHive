@@ -18,42 +18,43 @@
   .content {
     padding: 2px 16px;
   }
-
-.head{
+  
+  .head{
     color: brown;
     text-align: center;
-}
-.inputfields{
+  }
+  .inputfields{
     width:60%;
     font-size: larger;
-}
-
-/* textarea{
+  }
+  
+  /* textarea{
     width: 60%;
     font-size: larger;
     height: 20vh;
-} */
-
-/* label{
+  } */
+  
+  /* label{
     color: rgb(7, 7, 7);
     font-weight: 700;
     font-size: larger;
-}    */
-
-/* Media Queries */
-
-/* Above Tablet */
-@media only screen and (min-width: 1024px) {
-}
-
-/* Both Tablet and Mobile */
-@media only screen and (max-width: 1023px) {
-}
-
-/* Tablet only */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-}
-
-/* Mobile only */
-@media only screen and (max-width: 767px) {
-}
+  }    */
+  
+  /* Media Queries */
+  
+  /* Above Tablet */
+  @media only screen and (min-width: 1024px) {
+  }
+  
+  /* Both Tablet and Mobile */
+  @media only screen and (max-width: 1023px) {
+  }
+  
+  /* Tablet only */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  }
+  
+  /* Mobile only */
+  @media only screen and (max-width: 767px) {
+  }
+  

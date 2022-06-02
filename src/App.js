@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-
+import CreateEventCustomer from './pages/CreateEventCustomer/CreateEventCustomer';
 import SignUpCustomer from './pages/SignUpCustomer/SignUpCustomer';
 import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
 import LoginCustomer from "./pages/LoginCustomer/LoginCustomer";
@@ -86,6 +86,7 @@ const CustRoutes = () => {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path='/profile' element={<ProfileCustomer />}/>
+      <Route path='/createEventCustomer' element={<CreateEventCustomer />} />
       <Route path="/*" element={<PageNotFound />} />
 
     </Routes>

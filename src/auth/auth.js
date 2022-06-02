@@ -43,3 +43,13 @@ export const apiLoginOrganizer = async (loginOrganizerData) => {
       return error.response;
   }
 };
+
+export const apiCreateEventCustomer =async (eventdata)=>{
+  try{
+    const response=await api.post('createEventCustomer',eventdata);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}

@@ -5,6 +5,8 @@ import { ReactNotifications, Store } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { toastNotification } from '../../components/Notifications/toast';
 import {useNavigate} from 'react-router-dom';
+import ButtonCust from '../../components/Button/ButtonCust'
+
 function Login() {
   let navigate=useNavigate();
   const [loginCustomerData,setLoginCustomerData]=React.useState({
@@ -28,6 +30,7 @@ function Login() {
       // console.log(res.status)
       if(res.status>=200 && res.status<=299){
         localStorage.setItem('userName',data.userName);
+        localStorage.setItem('loginState',3);
         // window.location.href='/';
         navigate('/');
       }
@@ -36,10 +39,16 @@ function Login() {
   }
 
   return (
-    <div>
-      <label>User Name : <input type='text' name='userName' onChange={handleChange} value={loginCustomerData.userName}/></label>
-      <label>Password : <input type='password' name='password' onChange={handleChange} value={loginCustomerData.password}/></label>
-      <input type='button' onClick={onSubmit} value='Login'/>
+    <div className={`${styles.card}`}>
+
+    <h1 className={`${styles.head}`}>Login</h1>
+            <div className={`${styles.content}`}>
+            <label>User Name : <br/><input type='text' name='userName' onChange={handleChange} value={loginCustomerData.userName} className={`${styles.inputfields}`}/></label><br/>
+            <label>Password : <br /><input type='password' name='password' onChange={handleChange} value={loginCustomerData.password} className={`${styles.inputfields}`}/></label><br/>
+            <ButtonCust text='Login' func={onSubmit} />
+            </div>
+
+      
     </div>
   )
 }

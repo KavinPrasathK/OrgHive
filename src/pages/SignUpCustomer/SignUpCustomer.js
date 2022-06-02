@@ -7,6 +7,7 @@ import 'react-notifications-component/dist/theme.css'
 import { toastNotification } from '../../components/Notifications/toast';
 import { apiSignUpCustomer } from '../../auth/auth';
 import {useNavigate} from 'react-router-dom'
+import ButtonCust from '../../components/Button/ButtonCust'
 // import { Portal } from "react-overlays";
 
 // const CalendarContainer = ({ children }) => {
@@ -142,16 +143,17 @@ function SignUpCustomer() {
   return (
     <div>
 
-        <label>First Name : <input type='text' name='firstName' onChange={handleChange} value={signUpCustomerData.firstName} /></label><br/>
-        <label>Last Name: <input type='text' name='lastName' onChange={handleChange} value={signUpCustomerData.lastName} /></label><br/>
-        <label>User Name: <input type='text' name='userName' onChange={handleChange} value={signUpCustomerData.userName} /></label><br/>
-        <br/>
-        <label>Address : <textarea name='address' onChange={handleChange} value={signUpCustomerData.address}/></label><br/>
-        <label>Contact Number: <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onChange={handleChange} value={signUpCustomerData.phone}/></label><br/>
-        <label>Mail ID : <input type='email' name="email" onChange={handleChange} value={signUpCustomerData.email} /></label><br/>
 
-
-        <label>DOB : <DatePicker selected={dob} name='dob' onChange={handleDate}
+        <div className={`${styles.card}`}>
+            <h1 className={`${styles.head}`}>Sign Up</h1>
+            <div className={`${styles.content}`}>
+                <label>First Name :<br/> <input type='text' name='firstName' onChange={handleChange} value={signUpCustomerData.firstName} className={`${styles.inputfields}`} /></label><br/>
+                <label>Last Name: <br/><input type='text' name='lastName' onChange={handleChange} value={signUpCustomerData.lastName} className={`${styles.inputfields}`}/></label><br/>
+                <label>User Name: <br/> <input type='text' name='userName' onChange={handleChange} value={signUpCustomerData.userName} className={`${styles.inputfields}`}/></label><br/>
+                <label>Address : <br/><textarea name='address' onChange={handleChange} value={signUpCustomerData.address} className={`${styles.inputfields}`}/></label><br/>
+                <label>Contact Number: <br/> <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onChange={handleChange} value={signUpCustomerData.phone} className={`${styles.inputfields}`}/></label><br/>
+                <label>Mail ID :<br/> <input type='email' name="email" onChange={handleChange} value={signUpCustomerData.email} className={`${styles.inputfields}`}/></label><br/>
+                <label>DOB : <DatePicker selected={dob} name='dob' onChange={handleDate} className={`${styles.inputfields}`}
                                  dateFormat='dd/MM/yyyy'
                                  maxDate={new Date()}
                                  showYearDropdown
@@ -159,10 +161,18 @@ function SignUpCustomer() {
                                 //  popperContainer={CalendarContainer}
                                  popperPlacement='top'
             /></label><br/>
+            <label>Aadhar Number : <br/><input type='text' name="aadhar" onChange={handleChange} value={signUpCustomerData.aadhar} className={`${styles.inputfields}`} /></label><br/>
+            <label>Password : <br/><input type='password' name='password' onChange={handleChange} val={signUpCustomerData.password} className={`${styles.inputfields}`} /></label>
+            <br/><ButtonCust text='Sign Up' func={onSubmit} />
+            </div>
+        </div>
 
-        <label>Aadhar Number : <input type='text' name="aadhar" onChange={handleChange} value={signUpCustomerData.aadhar} /></label><br/>
-        <label>Password : <input type='password' name='password' onChange={handleChange} val={signUpCustomerData.password} /></label>
-        <input type='button' onClick={onSubmit} value='SignUp'/>
+        <br/>
+
+
+
+
+        
 
     </div>
   )
