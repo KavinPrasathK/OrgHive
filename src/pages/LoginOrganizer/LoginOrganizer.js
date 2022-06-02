@@ -9,7 +9,7 @@ import { apiLoginOrganizer } from '../../auth/auth';
 function Login() {
   let navigate=useNavigate();
   const [loginOrganizerData,setLoginOrganizerData]=React.useState({
-    orgid:"",
+    orgId:"",
     password:""
   })
 
@@ -25,11 +25,10 @@ function Login() {
   const onSubmit = async() =>{      
       var data=loginOrganizerData;
       const res=await apiLoginOrganizer(data);
-      console.log(res.data);
-      // console.log(res.status)
       if(res.status>=200 && res.status<=299){
-        localStorage.setItem('orgid',data.orgid);
-        // window.location.href='/';
+        localStorage.clear();
+        localStorage.setItem('orgId',data.orgId);
+        localStorage.setItem('loginState',2);
         navigate('/');
       }
       Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag})
@@ -38,7 +37,7 @@ function Login() {
 
   return (
     <div>
-    <label>Organizer-ID : <input type='text' name='orgid' onChange={handleChange} value={loginOrganizerData.orgid}/></label>
+    <label>Organizer-ID : <input type='text' name='orgId' onChange={handleChange} value={loginOrganizerData.orgId}/></label>
     <label>Password : <input type='password' name='password' onChange={handleChange} value={loginOrganizerData.password}/></label>
     <input type='button' onClick={onSubmit} value='Login'/>
   </div>

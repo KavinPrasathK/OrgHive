@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React from 'react'
 import styles from "./LoginCustomer.module.css"
 import {apiLoginCustomer}  from '../../auth/auth';
 import { ReactNotifications, Store } from 'react-notifications-component'
@@ -29,6 +29,7 @@ function Login() {
       console.log(res.data);
       // console.log(res.status)
       if(res.status>=200 && res.status<=299){
+        localStorage.clear();
         localStorage.setItem('userName',data.userName);
         localStorage.setItem('loginState',3);
         // window.location.href='/';

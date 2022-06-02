@@ -7,7 +7,6 @@ import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
 import LoginCustomer from "./pages/LoginCustomer/LoginCustomer";
 import LoginOrganizer from './pages/LoginOrganizer/LoginOrganizer';
 import Landing from "./pages/Landing/Landing";
-// import Navbar from "./components/Navbar/Navbar";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import ProfileCustomer from './pages/ProfileCustomer/ProfileCustomer';
 import ProfileOrganizer from './pages/ProfileOrganizer/ProfileOrganizer';
@@ -25,8 +24,6 @@ import styled,{ ThemeProvider } from 'styled-components';
 import React,{useEffect} from 'react';
 const StyledApp = styled.div``;
 var x;
-
-
 
 function App() {
   if(localStorage.getItem('loginState')){
@@ -71,16 +68,6 @@ const Dummy = () =>{
   )
 }
 
-
-// const AllRoutes = () => {
-//   return (
-//     <Routes>
-      
-//     </Routes>
-//   );
-// };
-
-
 const CustRoutes = () => {
   return (
     <Routes>
@@ -99,7 +86,6 @@ const OrgRoutes = () =>{
       <Route path="/" element={<Landing />} />
       <Route path='/profile' element={<ProfileOrganizer/>}/>
       <Route path="/*" element={<PageNotFound />} />
-
     </Routes>
   )
 }
@@ -110,23 +96,12 @@ const LogoutRoutes = () =>{
       <Route path="/" element={<Landing />} />
       <Route path='/SignUpCustomer' element={<SignUpCustomer/>}/>
       <Route path='/SignUpOrganizer' element={<SignUpOrganizer/>}/>
-       <Route path="/loginCustomer" element={<LoginCustomer />} />
+      <Route path="/loginCustomer" element={<LoginCustomer />} />
       <Route path="/loginOrganizer" element={<LoginOrganizer/>} />
       <Route path="/profile" element={<PlsLogin />} />
       <Route path="/*" element={<PageNotFound />} />
-
     </Routes>
   )
 }
-
-// const LoginRoutes = () =>{
-//   return (
-//     <Routes>
-//       {isOrganizer?<OrgRoutes/>:<CustRoutes/>}
-//       <Route path="/*" element={<PageNotFound />} />
-//     </Routes>
-//   )
-// }
-
 
 export default App;
