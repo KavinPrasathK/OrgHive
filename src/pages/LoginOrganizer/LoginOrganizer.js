@@ -24,6 +24,7 @@ function Login() {
 
   const onSubmit = async() =>{      
       var data=loginOrganizerData;
+      console.log(data);
       const res=await apiLoginOrganizer(data);
       if(res.status>=200 && res.status<=299){
         localStorage.clear();

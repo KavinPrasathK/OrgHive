@@ -12,9 +12,23 @@ import ButtonCust from '../../components/Button/ButtonCust'
 
 
 function organizer(props) {
-  
+
+  return(
+    <div className={`${styles.card}`} >
+      <h1 className={`${head}`}>{props.orgid}</h1>
+      <div className={`${styles.content}`}>
+        {props.rating}
+      </div>
+    </div>
+  )
 }
 
+function organizers(props){
+
+  var x=props.eventname;
+  // const res=ap
+
+}
 
 function CreateEventCustomer() {
 

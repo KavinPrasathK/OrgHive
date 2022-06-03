@@ -53,3 +53,13 @@ export const apiCreateEventCustomer =async (eventdata)=>{
     return error.response;
   }
 }
+
+export const apiGetOrganizerDataCreateEVentCustomer=async (eventname) =>{
+  try{
+    const response=await api.post('getOrganizerDataCreateEVentCustomer',eventname);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
