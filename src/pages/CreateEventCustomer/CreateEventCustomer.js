@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from "./CreateEventCustomer.module.css";
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -43,10 +43,10 @@ function Organizer(props) {
   }
   
   return(
-    <div className={`${styles.card}`}>
-      <h1 className={`${styles.head}`}>{props.orgid}</h1>
+    <div className={`${styles.card}`} >
+      <h1 className={`${styles.head}`}>{props.name}</h1>
       <div className={`${styles.content}`}>
-          <span>Organzation Name : {props.name}</span><br/>
+          <span>Organzation ID   : {props.orgid}</span><br/>
           <span>Manager Name     : {props.manager}</span><br />
           <span>Email            : {props.email}</span><br />
           <span>Contact1         : {props.contact1}</span><br />
@@ -85,6 +85,7 @@ function Organizers(props){
 
 
 function CreateEventCustomer() {
+  const myRef=useRef(null);
   let navigate=useNavigate();
     const [orgdata,setorgdata]=React.useState([]);
     const [org,setorg]=React.useState(false);
@@ -155,7 +156,7 @@ function CreateEventCustomer() {
       var x=formvalidate(data);
       if(x){
         setorgdata([]);
-        setorg(true);
+        await setorg(true);
         // console.log(data);
         // console.log('success');
           // const res=await apiCreateEventCustomer(data);
@@ -167,6 +168,7 @@ function CreateEventCustomer() {
           // console.log(res.data);
       //   res.redirect('/loginCustomer')
       };
+
   }
   
   const submitpage=async ()=>{
@@ -186,9 +188,14 @@ function CreateEventCustomer() {
 
   
   return (
-    <>
+    <div className={`${styles.outercard}`}>
+      <div className={`${styles.stars_1}`}></div>
+    <div className={`${styles.stars_2}`}></div>
+    <div className={`${styles.stars_3}`}></div>
     <div className={`${styles.card}`}>
-        <label>Event Name: <br/><select  name="eventname" onChange={handleChange} className={`${styles.inputfields}`}> 
+      <h1 className={`${styles.head}`}>POST EVENT</h1>
+      <div className={`${styles.content}`} >
+        <label>Event Name: <br/><br/><select  name="eventname" onChange={handleChange} className={`${styles.inputfields}`}> 
           <option value="">-</option>
           <option value="wedding">wedding</option>
           <option value="birthday">birthday</option>
@@ -196,22 +203,22 @@ function CreateEventCustomer() {
           <option value="fiat">Fiat</option>
           <option value="audi">Audi</option>
           </select>
-        </label><br/>
-        <label>Preferred Location:  <br/><input type='text' name='preferredlocation' onChange={handleChange} value={eventdata.preferredlocation } className={`${styles.inputfields}`}/></label><br/>
+        </label><br/><br />
+        <label>Preferred Location:  <br /><br /><input type='text' name='preferredlocation' onChange={handleChange} value={eventdata.preferredlocation } className={`${styles.inputfields}`}/></label><br/>
         <br/>
-        <label>Description :  <br/><textarea name='description' onChange={handleChange} value={eventdata.description} className={`${styles.inputfields}`}/></label><br/>
-        <label>Budget:  <br/><input type="number" name="budget"  onChange={handleChange} value={eventdata.budget} className={`${styles.inputfields}`}/></label><br/>
-        <label>Food :  <input type='checkbox' name="food" onChange={handlefood} checked={food} /></label><br/>
+        <label>Description :  <br/><br /><textarea name='description' onChange={handleChange} value={eventdata.description} className={`${styles.inputfields}`}/></label><br/><br />
+        <label>Budget:  <br/><br /><input type="number" name="budget"  onChange={handleChange} value={eventdata.budget} className={`${styles.inputfields}`}/></label><br/><br />
+        <label>Food :  <input type='checkbox' name="food" onChange={handlefood} checked={food} /></label><br/><br />
 
-        <label>StartDate :  <br/><DatePicker selected={fromdate} name='fromdate' onChange={handlefromDate} className={`${styles.inputfields}`}
+        <label>StartDate :  <br/><br /><DatePicker selected={fromdate} name='fromdate' onChange={handlefromDate} className={`${styles.inputfields}`}
                                  dateFormat='dd/MM/yyyy'
                                  showYearDropdown
                                  scrollableMonthYearDropdown
                                 //  popperContainer={CalendarContainer}
                                  popperPlacement='top'
-          /></label><br/>
+          /></label><br/><br />
 
-           <label>ToDate :  <br/><DatePicker selected={todate} name='todate' onChange={handletoDate} className={`${styles.inputfields}`}
+           <label>ToDate :  <br/><br /><DatePicker selected={todate} name='todate' onChange={handletoDate} className={`${styles.inputfields}`}
                                  dateFormat='dd/MM/yyyy'
   
                                  showYearDropdown
@@ -219,15 +226,17 @@ function CreateEventCustomer() {
                                 //  popperContainer={CalendarContainer}
                                  popperPlacement='top'
                                  isClearable
-          /></label><br/>
-        <ButtonCust text='Show Organizers' func={onSubmit}/>
+          /></label><br/><br />
+        <ButtonCust text='Show Organizers' func={onSubmit}/><br />
         {/* <input type='button' onClick={onSubmit} value='Create'/> */}
-          
+        </div>
     </div>
-    {org?<Organizers eventname={eventdata.eventname} orgdata={orgdata} setorgdata={setorgdata} />:<></>}
-
-    {org?<input type='button' value='Submit' onClick={submitpage}></input>:<></>}
-    </>
+    <div ref={myRef}>
+      {org?<Organizers  eventname={eventdata.eventname} orgdata={orgdata} setorgdata={setorgdata} />:<></>}
+    </div>
+    <br/>
+    {org?<ButtonCust text='Submit' func={submitpage}/>:<></>}
+    </div>
 
   )
 }
