@@ -5,7 +5,7 @@ import { faUserTie } from '@fortawesome/free-solid-svg-icons';
 
 function ButtonOrg(props){
         return (
-        <button className="button-org" onClick=""><FontAwesomeIcon icon={faUserTie} className="icon"/>{props.text}</button>
+        <button className="button-org" onClick={props.func}><FontAwesomeIcon icon={faUserTie} className="icon"/>{props.text}</button>
         );
 }
 export default ButtonOrg;

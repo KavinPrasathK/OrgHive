@@ -2,7 +2,7 @@
 
 .card {
     /* Add shadows to create the "card" effect */
-    background-color: aqua;
+    background-image: linear-gradient(45deg, white);
     width: 50%;
     margin: auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

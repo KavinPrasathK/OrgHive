@@ -15,7 +15,7 @@ function organizer(props) {
 
   return(
     <div className={`${styles.card}`} >
-      <h1 className={`${head}`}>{props.orgid}</h1>
+      <h1 className={`${styles.head}`}>{props.orgid}</h1>
       <div className={`${styles.content}`}>
         {props.rating}
       </div>

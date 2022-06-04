@@ -6,6 +6,7 @@ import { toastNotification } from "../../components/Notifications/toast";
 import { apiSignUpOrganizer } from "../../auth/auth";
 import { useNavigate } from "react-router-dom";
 import cryptoRandomString from 'crypto-random-string';
+import ButtonOrg from '../../components/Button/ButtonOrg';
 
 function SignUpOrganizer() {
   var navigate = useNavigate();
@@ -150,15 +151,23 @@ function SignUpOrganizer() {
 
   return (
     <div>
-        <label>Organization Name : <input type='text' name='name' onChange={handleChange} value={signUpOrganizerData.name} required/></label><br/>
-        <label>Manager Name: <input type='text' name='manager' onChange={handleChange} value={signUpOrganizerData.manager} /></label><br/>
-        <label>Contact Number 1: <input type='text' name='contact1' onChange={handleChange} value={signUpOrganizerData.contact1} required/></label><br/>
-        <label>Contact Number 2: <input type='text' name='contact2' onChange={handleChange} value={signUpOrganizerData.contact2} /></label><br/>
-        <label>Mail ID : <input type='email' name="email" onChange={handleChange} value={signUpOrganizerData.email} required/></label><br/>
-        <label>Address : <textarea name='address' onChange={handleChange} value={signUpOrganizerData.address}/></label><br/>
-        <label>GSTIN : <input type='text' name="gstin" onChange={handleChange} value={signUpOrganizerData.gstin} /></label><br/>
-        <label>Password : <input type='password' name='password' onChange={handleChange} value={signUpOrganizerData.password} /></label><br/>
-        <label>Events you organize: </label><br/>
+    <div className={`${styles.stars_1}`}></div>
+    <div className={`${styles.stars_2}`}></div>
+    <div className={`${styles.stars_3}`}></div>
+    <div className={`${styles.card}`} >
+    <div className={`${styles.cardchild}`}>
+      <h1 className={`${styles.head}`}>SIGN UP</h1>
+        <div className={`${styles.content}`}>
+        <label>Organization Name : <br/><br/><input type='text' name='name' onChange={handleChange} value={signUpOrganizerData.name} className={`${styles.inputfields}`}/></label><br/><br/>
+        <label>Manager Name: <br/><br/><input type='text' name='manager' onChange={handleChange} value={signUpOrganizerData.manager} className={`${styles.inputfields}`}/></label><br/><br/>
+        <label>Contact Number 1: <br/><br/><input type='text' name='contact1' onChange={handleChange} value={signUpOrganizerData.contact1} className={`${styles.inputfields}`}/></label><br/><br/>
+        <label>Contact Number 2: <br/><br/><input type='text' name='contact2' onChange={handleChange} value={signUpOrganizerData.contact2} className={`${styles.inputfields}`}/></label><br/><br/>
+        <label>Mail ID : <br/><br/><input type='email' name="email" onChange={handleChange} value={signUpOrganizerData.email} className={`${styles.inputfields}`}/></label><br/><br/>
+        <label>Address : <br/><br/><textarea name='address' onChange={handleChange} value={signUpOrganizerData.address} className={`${styles.inputfields}`}/></label><br/><br/>
+        <label>GSTIN : <br/><br/><input type='text' name="gstin" onChange={handleChange} value={signUpOrganizerData.gstin} className={`${styles.inputfields}`} /></label><br/><br/>
+        <label>Password : <br/><br/><input type='password' name='password' onChange={handleChange} value={signUpOrganizerData.password} className={`${styles.inputfields}`} /></label><br/><br/>
+        <div className={`${styles.evnt}`}>
+        <label>Events you organize: <br/><br/></label>
         <input type='checkbox' name="birthday" value={events.birthday} checked={events.birthday} onChange={handleEvent} />Birthday<br/>
         <input type='checkbox' name="wedding" value={events.wedding} checked={events.wedding} onChange={handleEvent} />Wedding<br/>
         <input type='checkbox' name="party" value={events.party} checked={events.party} onChange={handleEvent} />Parties<br/>
@@ -173,8 +182,12 @@ function SignUpOrganizer() {
         <input type='checkbox' name="tournaments" value={events.tournaments} checked={events.tournaments} onChange={handleEvent} />Sports Tournaments<br/>
         <input type='checkbox' name="stageshow" value={events.stageshow} checked={events.stageshow} onChange={handleEvent} />Stage Shows<br/>
         <input type='checkbox' name="political" value={events.political} checked={events.political} onChange={handleEvent} />Political Conventions<br/>
-        <input type='checkbox' name="others" value={events.others} checked={events.others} onChange={handleEvent} />Others<br/>
-        <input type='button' onClick={onSubmit} value='SignUp'/>
+        <input type='checkbox' name="others" value={events.others} checked={events.others} onChange={handleEvent} />Others<br/><br/>
+        </div>
+        <ButtonOrg text='Sign Up' func={onSubmit} /><br/><br/>
+        </div>
+        </div>
+      </div>
     </div>
   );
 }

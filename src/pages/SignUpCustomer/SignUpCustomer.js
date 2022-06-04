@@ -31,9 +31,6 @@ function SignUpCustomer() {
         password:""
     })
 
-
-
-
     const [dob,setdob]=React.useState(null);
 
     function handleChange(event){
@@ -137,43 +134,36 @@ function SignUpCustomer() {
         //   res.redirect('/loginCustomer')
         };
     }
-    
-
 
   return (
     <div>
-
-
-        <div className={`${styles.card}`}>
-            <h1 className={`${styles.head}`}>Sign Up</h1>
+    <div className={`${styles.stars_1}`}></div>
+    <div className={`${styles.stars_2}`}></div>
+    <div className={`${styles.stars_3}`}></div>
+    <div className={`${styles.card}`}>
+    <div className={`${styles.cardchild}`}>
+            <h1 className={`${styles.head}`}>SIGN UP</h1>
             <div className={`${styles.content}`}>
-                <label>First Name :<br/> <input type='text' name='firstName' onChange={handleChange} value={signUpCustomerData.firstName} className={`${styles.inputfields}`} /></label><br/>
-                <label>Last Name: <br/><input type='text' name='lastName' onChange={handleChange} value={signUpCustomerData.lastName} className={`${styles.inputfields}`}/></label><br/>
-                <label>User Name: <br/> <input type='text' name='userName' onChange={handleChange} value={signUpCustomerData.userName} className={`${styles.inputfields}`}/></label><br/>
-                <label>Address : <br/><textarea name='address' onChange={handleChange} value={signUpCustomerData.address} className={`${styles.inputfields}`}/></label><br/>
-                <label>Contact Number: <br/> <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onChange={handleChange} value={signUpCustomerData.phone} className={`${styles.inputfields}`}/></label><br/>
-                <label>Mail ID :<br/> <input type='email' name="email" onChange={handleChange} value={signUpCustomerData.email} className={`${styles.inputfields}`}/></label><br/>
-                <label>DOB : <DatePicker selected={dob} name='dob' onChange={handleDate} className={`${styles.inputfields}`}
+                <label>First Name :<br/><br/> <input type='text' name='firstName' onChange={handleChange} value={signUpCustomerData.firstName} className={`${styles.inputfields}`} /></label><br/><br/>
+                <label>Last Name: <br/><br/><input type='text' name='lastName' onChange={handleChange} value={signUpCustomerData.lastName} className={`${styles.inputfields}`}/></label><br/><br/>
+                <label>User Name: <br/><br/> <input type='text' name='userName' onChange={handleChange} value={signUpCustomerData.userName} className={`${styles.inputfields}`}/></label><br/><br/>
+                <label>Address : <br/><br/><textarea name='address' onChange={handleChange} value={signUpCustomerData.address} className={`${styles.inputfields}`}/></label><br/><br/>
+                <label>Contact Number: <br/><br/> <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onChange={handleChange} value={signUpCustomerData.phone} className={`${styles.inputfields}`}/></label><br/><br/>
+                <label>Mail ID :<br/> <br/><input type='email' name="email" onChange={handleChange} value={signUpCustomerData.email} className={`${styles.inputfields}`}/></label><br/><br/>
+                <label>DOB : <br/><br/><DatePicker selected={dob} name='dob' onChange={handleDate} className={`${styles.inputfields}`}
                                  dateFormat='dd/MM/yyyy'
                                  maxDate={new Date()}
                                  showYearDropdown
                                  scrollableMonthYearDropdown
                                 //  popperContainer={CalendarContainer}
                                  popperPlacement='top'
-            /></label><br/>
-            <label>Aadhar Number : <br/><input type='text' name="aadhar" onChange={handleChange} value={signUpCustomerData.aadhar} className={`${styles.inputfields}`} /></label><br/>
-            <label>Password : <br/><input type='password' name='password' onChange={handleChange} val={signUpCustomerData.password} className={`${styles.inputfields}`} /></label>
-            <br/><ButtonCust text='Sign Up' func={onSubmit} />
+            /></label><br/><br/>
+            <label>Aadhar Number : <br/><br/><input type='text' name="aadhar" onChange={handleChange} value={signUpCustomerData.aadhar} className={`${styles.inputfields}`} /></label><br/><br/>
+            <label>Password : <br/><br/><input type='password' name='password' onChange={handleChange} val={signUpCustomerData.password} className={`${styles.inputfields}`} /></label><br/><br/>
+            <ButtonCust text='Sign Up' func={onSubmit} /><br/><br/>
+            </div>
             </div>
         </div>
-
-        <br/>
-
-
-
-
-        
-
     </div>
   )
 }
