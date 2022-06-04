@@ -54,9 +54,9 @@ export const apiCreateEventCustomer =async (eventdata)=>{
   }
 }
 
-export const apiGetOrganizerDataCreateEVentCustomer=async (eventname) =>{
+export const apiGetOrganizerDataCreateEventCustomer=async (eventname) =>{
   try{
-    const response=await api.post('getOrganizerDataCreateEVentCustomer',eventname);
+    const response=await api.post('getOrganizerDataCreateEventCustomer',{eventname:eventname});
     return response;
   }
   catch(error){
