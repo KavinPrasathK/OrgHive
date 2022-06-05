@@ -63,3 +63,13 @@ export const apiGetOrganizerDataCreateEventCustomer=async (eventname) =>{
     return error.response;
   }
 }
+
+export const apiGetCustomerProfile=async (username) => {
+  try{
+    const response=await api.post('getCustomerProfile',username);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
