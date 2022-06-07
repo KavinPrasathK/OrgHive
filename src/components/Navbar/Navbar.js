@@ -7,7 +7,7 @@ export default function Navbar() {
     return (
       <nav className="navigation">
         <a href="/" className="brand-name">
-          <img src="images/org-logo.png" alt='logo'/>
+          <img src="../images/org-logo.png" alt='logo'/>
         </a>
         <button className="hamburger" 
         onClick={()=>{

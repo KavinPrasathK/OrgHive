@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
+import AcceptEventsOrganizer from './pages/AcceptEventsOrganizer/AcceptEventsOrganizer';
 import CreateEventCustomer from './pages/CreateEventCustomer/CreateEventCustomer';
 import SignUpCustomer from './pages/SignUpCustomer/SignUpCustomer';
 import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
@@ -11,6 +12,9 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import ProfileCustomer from './pages/ProfileCustomer/ProfileCustomer';
 import ProfileOrganizer from './pages/ProfileOrganizer/ProfileOrganizer';
 import PlsLogin from './pages/PlsLogin/PlsLogin';
+import AcceptEventOrg from './pages/AcceptEventOrg/AcceptEventOrg';
+import AcceptEventCustomer from './pages/AcceptEventCustomer/AcceptEventCustomer';
+import AcceptEventCust from './pages/AcceptEventCust/AcceptEventCust';
 import { ReactNotifications } from 'react-notifications-component';
 import {
   BrowserRouter as Router,
@@ -74,6 +78,8 @@ const CustRoutes = () => {
       <Route path="/" element={<Landing />} />
       <Route path='/profile' element={<ProfileCustomer />}/>
       <Route path='/createEventCustomer' element={<CreateEventCustomer />} />
+      <Route path='/AcceptEventCustomer' element={<AcceptEventCustomer />} />
+      <Route path="/aco/:eventid" element={<AcceptEventCust/>}/>
       <Route path="/*" element={<PageNotFound />} />
 
     </Routes>
@@ -85,6 +91,8 @@ const OrgRoutes = () =>{
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path='/profile' element={<ProfileOrganizer/>}/>
+      <Route path="/AcceptEventsOrganizer" element={<AcceptEventsOrganizer/>}/>
+      <Route path="/aeo/:eventid" element={<AcceptEventOrg/>}/>
       <Route path="/*" element={<PageNotFound />} />
     </Routes>
   )
