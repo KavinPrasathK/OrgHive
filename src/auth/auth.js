@@ -73,3 +73,93 @@ export const apiGetCustomerProfile=async (username) => {
     return error.response;
   }
 }
+
+export const apiGetOrganizerProfile=async (orgid) => {
+  try{
+    const response=await api.post('getOrganizerProfile',orgid);
+    // console.log(response);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiAddWallet=async (amount) => {
+  try{
+
+    const response =await api.post('addWallet',amount);
+    // console.log('asd');
+
+    // console.log(response);
+
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiProgressCustomer = async (eventid) => {
+
+  try{
+    const response=await api.post('progressCustomer',eventid);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+
+}
+
+
+export const apiAddProgressOrganizer = async (data) => {
+  try{
+    const response=await api.post('addProgressOrganizer',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+
+export const apiEventsInProgressCustomer = async (data) => {
+  try{
+    const response=await api.post('eventsInProgressCustomer',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiEventsCompleteCustomer = async (data) => {
+  try{
+    const response=await api.post('eventsCompleteCustomer',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiEventsInProgressOrganizer = async (data) => {
+  try{
+    const response=await api.post('eventsInProgressOrganizer',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiEventsCompleteOrganizer = async (data) => {
+  try{
+    const response=await api.post('eventsCompleteOrganizer',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}

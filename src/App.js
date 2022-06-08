@@ -9,8 +9,14 @@ import LoginOrganizer from './pages/LoginOrganizer/LoginOrganizer';
 import Landing from "./pages/Landing/Landing";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import ProfileCustomer from './pages/ProfileCustomer/ProfileCustomer';
+import ProgressCustomer from './pages/progressCustomer/progressCustomer';
+import ProgressOrganizer from './pages/progressOrganizer/progressOrganizer';
 import ProfileOrganizer from './pages/ProfileOrganizer/ProfileOrganizer';
+import EventsCompleteCustomer from './pages/EventsCompleteCustomer/EventsCompleteCustomer';
+import EventsCompleteOrganizer from './pages/EventsCompleteOrganizer/EventsCompleteOrganizer';
 import PlsLogin from './pages/PlsLogin/PlsLogin';
+import EventsinProgressCustomer from './pages/EventsInProgressCustomer/EventsInProgressCustomer';
+import EventsinProgressOrganizer from './pages/EventsInProgressOrganizer/EventsInProgressOrganizer';
 import { ReactNotifications } from 'react-notifications-component';
 import {
   BrowserRouter as Router,
@@ -22,6 +28,7 @@ import {
 import {darkTheme,lightTheme,GlobalStyles} from './themes';
 import styled,{ ThemeProvider } from 'styled-components';
 import React,{useEffect} from 'react';
+import Navbar from './components/Navbar/Navbar';
 const StyledApp = styled.div``;
 var x;
 
@@ -41,9 +48,10 @@ function App() {
       <GlobalStyles />
       <StyledApp>
       <div className="App">
+      {/* <Navbar /> */}
+
           <ReactNotifications />
           {/* <loginContext.Provider  value={{loginstate,setloginstate}} /> */}
-          
           <Router>
             {/* {localStorage.getItem('loginState')==1?<Navbar />:<Dummy/>} */}
             {/* <Navbar /> */}
@@ -74,8 +82,12 @@ const CustRoutes = () => {
       <Route path="/" element={<Landing />} />
       <Route path='/profile' element={<ProfileCustomer />}/>
       <Route path='/createEventCustomer' element={<CreateEventCustomer />} />
-      <Route path="/*" element={<PageNotFound />} />
+      <Route path='/createEventCustomer' element={<CreateEventCustomer />} />
+      <Route path='/progress/:eventid' element={<ProgressCustomer />} />
+      <Route path='/eventsinprogress' element={<EventsinProgressCustomer />} />
+      <Route path='eventsComplete' element={<EventsCompleteCustomer />} />
 
+      <Route path="/*" element={<PageNotFound />} />
     </Routes>
   )
 }
@@ -85,6 +97,9 @@ const OrgRoutes = () =>{
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path='/profile' element={<ProfileOrganizer/>}/>
+      <Route path='/progress/:eventid' element={<ProgressOrganizer />} />
+      <Route path='/eventsinprogress' element={<EventsinProgressOrganizer />} />
+      <Route path='/eventsComplete' element={<EventsCompleteOrganizer />} />
       <Route path="/*" element={<PageNotFound />} />
     </Routes>
   )

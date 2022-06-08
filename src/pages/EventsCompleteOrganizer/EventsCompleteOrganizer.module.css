@@ -1,0 +1,27 @@
+.headerEPC{
+    background-color: #f51269bd;
+    height: 20vh;
+    color: white;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; 
+    background-color: aquamarine;
+    width: 40%;
+    margin: auto;
+    text-align: left;
+}
+.container {
+    padding: 10px 50px;
+}
+
+.card:hover{
+    /* cursor: pointer; */
+    transform: scale(1.05);
+}
+
+.subhead {
+    font-weight: 500;
+}

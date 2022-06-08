@@ -1,13 +1,39 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useState } from "react";
 import styles from "./Navbar.modules.css"
+import {useNavigate} from 'react-router-dom';
+import { ReactNotifications, Store } from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { toastNotification } from '../../components/Notifications/toast';
 
-export default function Navbar() {
+export default function Navbar(props) {
+    let navigate=useNavigate();
+    const [x,setx]=useState(false)
+    useEffect(() => {
+      // console.log(localStorage.getItem('loginState'))
+      if(localStorage.getItem('loginState')==1){
+        setx(false);
+      }else{
+        setx(true);
+      }
+      // console.log(x);
+    },[])
+
+    const logout = async () => {
+      console.log('skcjb');
+      localStorage.clear();
+      localStorage.setItem('loginState',1);
+      Store.addNotification({...toastNotification,message:'Logged Out Successfully',type:'success'});
+      setx(1)
+      props.sety(1);
+      navigate('/')
+    }
+
     const [ isExpanded , setIsExpanded ] = useState(false);
     return (
       <nav className="navigation">
         <a href="/" className="brand-name">
-          <img src="images/org-logo.png" alt='logo'/>
+          <img src="../images/org-logo.png" alt='logo'/>
         </a>
         <button className="hamburger" 
         onClick={()=>{
@@ -30,7 +56,7 @@ export default function Navbar() {
           className={(isExpanded)?"navigation-menu expanded":"navigation-menu"}>
           <ul>
             <li>
-              <a href="/home">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
               <a href="/about">About</a>
@@ -38,6 +64,8 @@ export default function Navbar() {
             <li>
               <a href="/contact">Contact</a>
             </li>
+            {x?<li><a href="/profile">Profile</a></li>:<></>}
+            {x?<li onClick={logout}>Logout</li>:<></>}
           </ul>
         </div>
       </nav>

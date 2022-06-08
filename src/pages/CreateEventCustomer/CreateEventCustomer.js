@@ -197,11 +197,22 @@ function CreateEventCustomer() {
       <div className={`${styles.content}`} >
         <label>Event Name: <br/><br/><select  name="eventname" onChange={handleChange} className={`${styles.inputfields}`}> 
           <option value="">-</option>
-          <option value="wedding">wedding</option>
           <option value="birthday">birthday</option>
-          <option value="saab">Saab</option>
-          <option value="fiat">Fiat</option>
-          <option value="audi">Audi</option>
+          <option value="wedding">wedding</option>
+          <option value="party">party</option>
+          <option value="official">official</option>
+          <option value="culturals">culturals</option>
+          <option value="conferences">conferences</option>
+          <option value="exhibition">exhibition</option>
+          <option value="openings">openings</option>
+          <option value="promotion">promotion</option>
+          <option value="launch">launch</option>
+          <option value="musical">musical</option>
+          <option value="tournaments">tournaments</option>
+          <option value="stageshow">stageshow</option>
+          <option value="political">political</option>
+          <option value="others">others</option>
+
           </select>
         </label><br/><br />
         <label>Preferred Location:  <br /><br /><input type='text' name='preferredlocation' onChange={handleChange} value={eventdata.preferredlocation } className={`${styles.inputfields}`}/></label><br/>
