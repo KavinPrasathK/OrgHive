@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { apiEventsCompleteOrganizer } from "../../auth/auth";
 import Navbar from '../../components/Navbar/Navbar';
 import styles from "./EventsCompleteOrganizer.module.css"
+import Footer from '../../components/Footer/Footer';
 
 
 function Eccitem(props) {
@@ -56,7 +57,7 @@ function EventsCompleteOrganizer(){
         </div>
         <br /><br />
         {showecc?<Ecc eccdata={eccdata}/>:<>No events in progress</>}
-
+        <Footer />
         
         </>  
     )

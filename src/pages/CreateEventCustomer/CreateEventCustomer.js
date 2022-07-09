@@ -9,12 +9,11 @@ import {apiCreateEventCustomer,apiGetOrganizerDataCreateEventCustomer} from '../
 import cryptoRandomString from 'crypto-random-string';
 import ButtonCust from '../../components/Button/ButtonCust'
 import {useNavigate} from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 
 
 
 function Organizer(props) {
-
-  
   var rating=parseFloat(props.rating);
   const [isSent,setisSent]=React.useState(false);
 
@@ -25,8 +24,6 @@ function Organizer(props) {
       username:localStorage.getItem('userName')
     })
     props.setorgdata(arr);
-    // console.log(props.orgdata);
-
     setisSent(!isSent)
   }
 
@@ -35,9 +32,7 @@ function Organizer(props) {
     var newarr=arr.filter((orgd)=>{
       return orgd.orgid!=orgid
     })
-    // console.log(newarr);
     await props.setorgdata(newarr);
-    // console.log(props.orgdata);
     setisSent(!isSent)
     
   }
@@ -62,34 +57,27 @@ function Organizer(props) {
 
 
 function Organizers(props){
-    const [orgcomp,setorgcomp]=React.useState([]);
-    // const []
+  const [orgcomp,setorgcomp]=React.useState([]);
   useEffect(()=>{
     var x=props.eventname;
     apiGetOrganizerDataCreateEventCustomer(x).then((data)=>{
-      // console.log(data.data);
-      setorgcomp(data.data);
+        setorgcomp(data.data);
     }
     )
     },[props.eventname]);
-    // console.log(orgcomp);
-    var orgc=orgcomp.map((item,i)=>{
+    var orgc = orgcomp.map((item,i)=>{
       return <Organizer orgid={item.ORGID} name={item.NAME} manager={item.MANAGER} email={item.EMAIL} contact1={item.CONTACT1} 
       contact2={item.CONTACT2} address={item.ADDRESS} rating={item.RATING} orgdata={props.orgdata} setorgdata={props.setorgdata}/>
     })
-    return(
-        orgc
-    )
-
+    return(orgc);
   };
 
 
 function CreateEventCustomer() {
-  const myRef=useRef(null);
-  let navigate=useNavigate();
+  const myRef = useRef(null);
+  let navigate = useNavigate();
     const [orgdata,setorgdata]=React.useState([]);
     const [org,setorg]=React.useState(false);
-    var orgx=false;
     const [eventdata,seteventdata]=React.useState({
         eventID:"",
         username:localStorage.getItem('userName'),
@@ -100,7 +88,7 @@ function CreateEventCustomer() {
         budget:0,
         food:false,
         description:""
-    })
+    });
     const [fromdate,setfromdate]=React.useState(null);
     const [todate,settodate]=React.useState(null);
     const [food,setfood]=React.useState(false);
@@ -111,24 +99,21 @@ function CreateEventCustomer() {
               ...prevData,
               [event.target.name]:event.target.value
           }
-      })
+      });
     }
 
     function handlefromDate(event){
       setorg(false);
       setfromdate(event);
-      console.log(event);
     }
     function handletoDate(event){
       setorg(false);
       settodate(event);
-      console.log(event);
     }
 
     function handlefood(event){
       setorg(false);
       setfood(!food);
-      console.log(food);
     }
 
     function formvalidate(data){
@@ -149,33 +134,19 @@ function CreateEventCustomer() {
 
     const onSubmit= async() => {
 
-      var str='E'+cryptoRandomString({length: 6, type: 'alphanumeric'});
-      var data={...eventdata,fromdate:fromdate,todate:todate,food:food,eventID:str}
-      // console.log(data);
+      var str ='E'+cryptoRandomString({length: 6, type: 'alphanumeric'});
+      var data = {...eventdata,fromdate:fromdate,todate:todate,food:food,eventID:str}
 
-      var x=formvalidate(data);
+      var x = formvalidate(data);
       if(x){
         setorgdata([]);
         await setorg(true);
-        // console.log(data);
-        // console.log('success');
-          // const res=await apiCreateEventCustomer(data);
-          // console.log(res);
-          // if(res.status>=200 && res.status<=299){
-              // navigate('/');
-          // }
-          // Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag})
-          // console.log(res.data);
-      //   res.redirect('/loginCustomer')
       };
 
-  }
+    }
   
   const submitpage=async ()=>{
-    // console.log();
-    // console.log(orgdata);
-    const data={...eventdata,fromdate:fromdate,todate:todate,food:food,eventID:'E'+cryptoRandomString({length: 6, type: 'alphanumeric'}),orgdata:orgdata}
-    // console.log(data);
+    const data={...eventdata,fromdate:fromdate,todate:todate,food:food,eventID:'E'+cryptoRandomString({length: 6, type: 'alphanumeric'}),orgdata:orgdata};
     const res=await apiCreateEventCustomer(data);
     console.log(res);
     if(res.status>=200 && res.status<=299){
@@ -189,7 +160,7 @@ function CreateEventCustomer() {
   
   return (
     <div className={`${styles.outercard}`}>
-      <div className={`${styles.stars_1}`}></div>
+    <div className={`${styles.stars_1}`}></div>
     <div className={`${styles.stars_2}`}></div>
     <div className={`${styles.stars_3}`}></div>
     <div className={`${styles.card}`}>
@@ -243,10 +214,12 @@ function CreateEventCustomer() {
         </div>
     </div>
     <div ref={myRef}>
-      {org?<Organizers  eventname={eventdata.eventname} orgdata={orgdata} setorgdata={setorgdata} />:<></>}
+      {org ? <Organizers  eventname={eventdata.eventname} orgdata={orgdata} setorgdata={setorgdata} />:<> </>}
     </div>
     <br/>
-    {org?<ButtonCust text='Submit' func={submitpage}/>:<></>}
+    {org ? <ButtonCust text='Submit' func={submitpage}/>:<></>}
+    <Footer />
+
     </div>
 
   )

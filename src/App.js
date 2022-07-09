@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
+import AcceptEventsOrganizer from './pages/AcceptEventsOrganizer/AcceptEventsOrganizer';
 import CreateEventCustomer from './pages/CreateEventCustomer/CreateEventCustomer';
 import SignUpCustomer from './pages/SignUpCustomer/SignUpCustomer';
 import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
@@ -17,6 +18,9 @@ import EventsCompleteOrganizer from './pages/EventsCompleteOrganizer/EventsCompl
 import PlsLogin from './pages/PlsLogin/PlsLogin';
 import EventsinProgressCustomer from './pages/EventsInProgressCustomer/EventsInProgressCustomer';
 import EventsinProgressOrganizer from './pages/EventsInProgressOrganizer/EventsInProgressOrganizer';
+import AcceptEventOrg from './pages/AcceptEventOrg/AcceptEventOrg';
+import AcceptEventCustomer from './pages/AcceptEventCustomer/AcceptEventCustomer';
+import AcceptEventCust from './pages/AcceptEventCust/AcceptEventCust';
 import { ReactNotifications } from 'react-notifications-component';
 import {
   BrowserRouter as Router,
@@ -86,8 +90,12 @@ const CustRoutes = () => {
       <Route path='/progress/:eventid' element={<ProgressCustomer />} />
       <Route path='/eventsinprogress' element={<EventsinProgressCustomer />} />
       <Route path='eventsComplete' element={<EventsCompleteCustomer />} />
+      <Route path='/AcceptEventCustomer' element={<AcceptEventCustomer />} />
+      {/* <Route path="/aco/:eventid" element={<AcceptEventCust/>}/> */}
+      <Route path="/aec/:urldata" element={<AcceptEventCust/>}/>
 
       <Route path="/*" element={<PageNotFound />} />
+
     </Routes>
   )
 }
@@ -100,6 +108,8 @@ const OrgRoutes = () =>{
       <Route path='/progress/:eventid' element={<ProgressOrganizer />} />
       <Route path='/eventsinprogress' element={<EventsinProgressOrganizer />} />
       <Route path='/eventsComplete' element={<EventsCompleteOrganizer />} />
+      <Route path="/AcceptEventsOrganizer" element={<AcceptEventsOrganizer/>}/>
+      <Route path="/aeo/:eventid" element={<AcceptEventOrg/>}/>
       <Route path="/*" element={<PageNotFound />} />
     </Routes>
   )
@@ -113,7 +123,7 @@ const LogoutRoutes = () =>{
       <Route path='/SignUpOrganizer' element={<SignUpOrganizer/>}/>
       <Route path="/loginCustomer" element={<LoginCustomer />} />
       <Route path="/loginOrganizer" element={<LoginOrganizer/>} />
-      <Route path="/profile" element={<PlsLogin />} />
+      <Route path="/profile" element={<PageNotFound />} />
       <Route path="/*" element={<PageNotFound />} />
     </Routes>
   )

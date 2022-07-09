@@ -24,7 +24,7 @@ export default function Navbar(props) {
       localStorage.clear();
       localStorage.setItem('loginState',1);
       Store.addNotification({...toastNotification,message:'Logged Out Successfully',type:'success'});
-      setx(1)
+      setx(!x)
       props.sety(1);
       navigate('/')
     }
@@ -59,13 +59,10 @@ export default function Navbar(props) {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
+              <a href="mailto:orghive@gmail.com">Contact</a>
             </li>
             {x?<li><a href="/profile">Profile</a></li>:<></>}
-            {x?<li onClick={logout}>Logout</li>:<></>}
+            {x?<li onClick={logout}><a>Logout</a></li>:<></>}
           </ul>
         </div>
       </nav>

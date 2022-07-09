@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { apiEventsInProgressCustomer } from "../../auth/auth";
 import Navbar from '../../components/Navbar/Navbar';
 import styles from "./EventsInProgressCustomer.module.css"
+import Footer from '../../components/Footer/Footer';
 
 
 function Epcitem(props) {
@@ -41,7 +42,6 @@ function EventsinProgressCustomer(){
     const username=localStorage.getItem('userName');
     const [epcdata,setepcdata]=useState([]);
     const [showepc,setshowepc]=useState(false);
-    
     useEffect(()=>{
         console.log(username);
         apiEventsInProgressCustomer({username:username}).then((data)=>{
@@ -60,7 +60,7 @@ function EventsinProgressCustomer(){
         <br /><br />
         {showepc?<Epc epcdata={epcdata}/>:<>No events in progress</>}
 
-        
+        <Footer />
         </>  
     )
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { apiEventsInProgressOrganizer } from "../../auth/auth";
 import Navbar from '../../components/Navbar/Navbar';
 import styles from "./EventsInProgressOrganizer.module.css"
+import Footer from '../../components/Footer/Footer';
 
 
 function Epcitem(props) {
@@ -58,6 +59,7 @@ function EventsinProgressOrganizer(){
         </div>
         <br /><br />
         {showepc?<Epc epcdata={epcdata}/>:<>No events in progress</>}
+        <Footer />
         </>  
     )
 }

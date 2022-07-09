@@ -44,7 +44,7 @@ export const apiLoginOrganizer = async (loginOrganizerData) => {
   }
 };
 
-export const apiCreateEventCustomer =async (eventdata)=>{
+export const apiCreateEventCustomer = async (eventdata)=>{
   try{
     const response=await api.post('createEventCustomer',eventdata);
     return response;
@@ -84,6 +84,15 @@ export const apiGetOrganizerProfile=async (orgid) => {
     return error.response;
   }
 }
+export const apiGetEventDetails=async (orgid) => {
+  try{
+    const response=await api.post('getEventDetails',orgid);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
 
 export const apiAddWallet=async (amount) => {
   try{
@@ -92,7 +101,16 @@ export const apiAddWallet=async (amount) => {
     // console.log('asd');
 
     // console.log(response);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
 
+export const apiDeleteReqOrg = async (eventid) => {
+  try{
+    const response=await api.post('deleteReqOrg',eventid);
     return response;
   }
   catch(error){
@@ -122,11 +140,30 @@ export const apiAddProgressOrganizer = async (data) => {
     return error.response;
   }
 }
+export const apiEventDetail = async (eventid) => {
+  try{
+    const response=await api.post('eventDetail',eventid);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
 
 
 export const apiEventsInProgressCustomer = async (data) => {
   try{
     const response=await api.post('eventsInProgressCustomer',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiAcceptReqOrg = async (eventid) => {
+  try{
+    const response=await api.post('acceptReqOrg',eventid);
     return response;
   }
   catch(error){
@@ -144,9 +181,28 @@ export const apiEventsCompleteCustomer = async (data) => {
   }
 }
 
+export const apiEventReqDetail = async (usr) => {
+  try{
+    const response=await api.post('eventReqDetail',usr);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
 export const apiEventsInProgressOrganizer = async (data) => {
   try{
     const response=await api.post('eventsInProgressOrganizer',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+export const apiEventOrgDetail = async (usr) => {
+  try{
+    const response=await api.post('eventOrgDetail',usr);
     return response;
   }
   catch(error){
@@ -157,6 +213,45 @@ export const apiEventsInProgressOrganizer = async (data) => {
 export const apiEventsCompleteOrganizer = async (data) => {
   try{
     const response=await api.post('eventsCompleteOrganizer',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+export const apiDeleteReqCust = async (eventid) => {
+  try{
+    const response=await api.post('deleteReqCust',eventid);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiAcceptReqCust = async (eventid) => {
+  try{
+    const response=await api.post('acceptReqCust',eventid);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiGetToDate =async (eventid) => {
+  try{
+    const response=await api.post('getToDate',eventid);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiMakePayment = async(amt) => {
+  try{
+    const response =await api.post('makePayment',amt);
     return response;
   }
   catch(error){

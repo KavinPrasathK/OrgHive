@@ -1,0 +1,24 @@
+.headerAE{
+    background-color: #f51269bd;
+    height:40vh;
+    color: white;
+    border-bottom: 5px solid #fbfeff;
+}
+.contentDiv{
+    padding: 0 0 10vh;
+}
+.eventCard{
+    background-color:#1492ccd8 ;
+    width: 60%;
+    margin: 5vh auto;
+    box-shadow: 0 8px 8px 0 rgba(248, 248, 248, 0.952);
+    transition: 0.3s;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    padding: 5px 10px 10px;
+    color: white;
+}
+.eventCardHidden{
+    display: none;
+}

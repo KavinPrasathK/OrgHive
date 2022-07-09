@@ -145,7 +145,10 @@ function SignUpOrganizer() {
         navigate('/');
       }
       // console.log(res.data.message,+res.data.flag);
-      Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag});
+      Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag,dismiss: {
+        duration: 10000,
+        onScreen: true
+    }});
     };  
   }
 

@@ -1,0 +1,11 @@
+.pnf{
+    color: white;
+    text-shadow: 5px 5px 3px #f51492;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100px;
+    margin-top: 30vh;
+}
+.foot{
+    color:white;
+    font-weight: bolder;
+}
