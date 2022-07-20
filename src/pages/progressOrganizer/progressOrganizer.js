@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import { ReactNotifications, Store } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { toastNotification } from '../../components/Notifications/toast';
+import Footer from '../../components/Footer/Footer';
 
 function Progressitem(props) {
 
@@ -72,11 +73,12 @@ function ProgressOrganizer() {
         <br /><br />
 
         <textarea className={`${styles.txtar}`}  value={addprogress} onChange={handleprog} /><br />
-        <input type='button' value='Add Progress' onClick={submitprog} /><br />
+        <input className={`${styles.bo}`} type='button' value='Add Progress' onClick={submitprog} /><br />
 
         <br />
         {showprog?<Progress pdata={pdata.data} />:<></>}
-        
+        <br /><br />
+        <Footer />
     </>      
   )
 }

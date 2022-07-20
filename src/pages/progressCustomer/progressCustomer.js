@@ -7,6 +7,55 @@ import ButtonCust from "../../components/Button/ButtonCust";
 import { ReactNotifications, Store } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { toastNotification } from '../../components/Notifications/toast';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
+// import Rate from '../../components/Rating/Rating';
+import Footer from '../../components/Footer/Footer';
+
+
+//--
+// import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { Container, Radio, Rating } from "./RatingStyles";
+var x=0;
+
+const Rate = (props) => {
+//   const [rate, setRate] = useState(0);
+  return (
+    <Container>
+      {[...Array(5)].map((item, index) => {
+        const givenRating = index + 1;
+        
+        return (
+          <label>
+            <Radio
+              type="radio"
+              value={givenRating}
+              onClick={() => {
+                props.setRate(givenRating);
+                alert(`Are you sure you want to give ${givenRating} stars ?`);
+                
+              }}
+            />
+            <Rating>
+              <FaStar
+                color={
+                  givenRating < props.rate || givenRating === props.rate
+                    ? "rgb(255,255,0)"
+                    : "rgb(192,192,192)"
+                }
+              />
+            </Rating>
+          </label>
+        );
+      })}
+    </Container>
+  );
+};
+  
+//==
+
+
 
 function Progressitem(props) {
 
@@ -36,6 +85,30 @@ function Progress(props){
 }
 
 function ProgressCustomer() {
+    const [rate, setRate] = useState(0);
+    const options = {
+        title: 'Warning!!',
+        message: 'Are you sure you want to proceed',
+        buttons: [
+          {
+            label: 'Yes',
+            onClick: () => makepayment()
+          },
+          {
+            label: 'No',
+            onClick: () => alert('Transaction Failed')
+          }
+        ],
+        closeOnEscape: true,
+        closeOnClickOutside: true,
+        keyCodeForClose: [8, 32],
+        willUnmount: () => {},
+        afterClose: () => {},
+        onClickOutside: () => {},
+        onKeypress: () => {},
+        onKeypressEscape: () => {},
+        overlayClassName: "overlay-custom-class-name"
+      };
     let { eventid } = useParams();
     const [pdata,setpdata]=useState([]);
     const [showprog,setshowprog]=useState(false);
@@ -69,12 +142,21 @@ function ProgressCustomer() {
     }
 
     const makepayment=async () => {
-        const result1=await apiMakePayment({amt:mkp,eventid:eventid});
+        // Window.confirm('asd');
+        
+        // alert('asdee');
+        const result1=await apiMakePayment({amt:mkp,eventid:eventid,rating:rate});
         console.log(result1);
         Store.addNotification({...toastNotification,message:result1.data.message,type:result1.data.flag})
-        navigate('/eventsComplete')
-    }
+        if(result1.status>=200 && result1.status<=299){
+            navigate('/eventsComplete');
+            window.print();
 
+        }else{
+            navigate('/profile');
+        }
+    }
+    console.log(rate);
   return (
     <>
         <div className={`${styles.headerPC}`}>
@@ -86,8 +168,11 @@ function ProgressCustomer() {
         <br/><br/>
         {showpay?<>
             {/* <input type='number' value={mkp} onChange={handlemkp} /> */}
-            <input type='button' value='Make Payment' onClick={makepayment} />
+            <h2 className={`${styles.rat}`} >Rating :</h2><h4 style={{color:'white'}}>How was your experience? Please rate on a scale of 5</h4><Rate rate={rate} setRate={setRate} />
+            <input className={`${styles.bo}`} type='button' value='Make Payment' onClick={()=>confirmAlert(options)} />
         </>:<></>}
+        <br /><br/><br />
+        <Footer/>
     </>      
   )
 }

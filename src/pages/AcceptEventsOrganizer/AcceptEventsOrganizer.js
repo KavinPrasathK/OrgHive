@@ -18,6 +18,7 @@ function AcceptEventsOrganizer() {
     const [ eventData , setEventData ] = useState([]);
 
     useEffect(()=>{
+        // console.log('sdj');
         apiGetEventDetails(data).then((res)=>{
             if (res.status >= 200 && res.status <= 299) {
                 setEventAvl(true);

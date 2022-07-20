@@ -8,19 +8,30 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; 
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    color: white;
+    font-size: large;
+    padding-bottom: 8px;
+    background-color: #420075;
+    border: 3px solid white;
     width: 40%;
-    margin: auto;
+    margin: 0 auto 15px auto;
     text-align: left;
 }
+
+
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 5px 5px 5px white;
+
+}
+
 .container {
     padding: 10px 50px;
 }
 
-.card:hover{
-    /* cursor: pointer; */
-    transform: scale(1.05);
-}
+
 
 .subhead {
     font-weight: 500;
