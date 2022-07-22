@@ -38,19 +38,21 @@ function AcceptEventCustomer() {
                 <h2>Hello {username}!</h2>
                 <h1>Event Requests to be accepted</h1>
             </div>
-            <div className={(eventAvl)?"eventCardHidden":"eventCard"}>No events founds!<br/><br/>
-            <button onClick={()=>navigate('/createEventCustomer')}>Add Event</button></div>
+            <div className="stars_1"></div>
+            <div className="stars_2"></div>
+            <div className="stars_3"></div>
+            <div className={(eventAvl)?"eventCardHidden":"eventCard"}><h1>No event founds!</h1><br/>
+            <button className="buttonAE" onClick={()=>navigate('/createEventCustomer')}>Add Event</button><br/></div>
             <div className='contentDiv'>
             {eventData.map((item,i)=>{
                 return (eventAvl)?(
                 <div className="eventCard">
-                    <div>
-                        <div>Request from {(item.ORGID)}</div>
-                        <div>Proposal for your Event : {(item.EVENTNAME[0]).toUpperCase() + (item.EVENTNAME).slice(1)} with Event-ID : {(item.EVENTID)}
-                        has been accepted, with a proposed budget of Rs. {(item.NEWBUDGET)}</div>
-                        <div>Message from the Organizer : {(item.REQDESCRIPTION)}</div>
+                    <div style={{fontSize:"large",paddingLeft:10,paddingRight:10}}>
+                        <div>Request from <b>{(item.ORGID)}</b></div>
+                        <div>Proposal for your Event : <span style={{color:"#f51269"}}><b>{(item.EVENTNAME[0]).toUpperCase() + (item.EVENTNAME).slice(1)}</b></span> with Event-ID : <span style={{color:"#f51269"}}><b>{(item.EVENTID)}</b></span> has been accepted, with a proposed budget of Rs. <b>{(item.NEWBUDGET)}</b></div>
+                        <div>Message from the Organizer : <b>{(item.REQDESCRIPTION)}</b></div>
                     </div><br/>
-                    <button onClick={()=>navigate('/aec/'+item.ORGID+'$'+item.EVENTID)}>Show Details</button><br/>
+                    <button className="buttonAE" onClick={()=>navigate('/aec/'+item.ORGID+'$'+item.EVENTID)}>Show Details</button><br/>
                 </div>
                 ):<></>;
             })}

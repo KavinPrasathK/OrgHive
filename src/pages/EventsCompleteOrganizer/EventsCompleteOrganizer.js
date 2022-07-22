@@ -17,10 +17,7 @@ function Eccitem(props) {
             <span className={`${styles.subhead}`}>Event Id : </span>{props.eventid}<br />
             <span className={`${styles.subhead}`}>Organizer Name : </span>{props.orgname}<br />
             <span className={`${styles.subhead}`}>Description : </span>{props.description}<br />
-
         </div>
- 
-
     </div>
     )
 }
@@ -45,7 +42,9 @@ function EventsCompleteOrganizer(){
         apiEventsCompleteOrganizer({orgid:orgid}).then((data)=>{
             console.log(data.data.data);
             seteccdata(data.data.data);
-            setshowecc(true);
+            if ((data.data.data).length>0){
+                setshowecc(true);
+            }
         })
     },[])
 
@@ -55,8 +54,11 @@ function EventsCompleteOrganizer(){
             <Navbar />
             <h1>Events Completed</h1>
         </div>
+        <div className="stars_1"></div>
+        <div className="stars_2"></div>
+        <div className="stars_3"></div>
         <br /><br />
-        {showecc?<Ecc eccdata={eccdata}/>:<>No events in progress</>}
+        {showecc?<Ecc eccdata={eccdata}/>:<div className="eventCard"><h1>No Completed Event :)</h1></div>}
         <Footer />
         
         </>  

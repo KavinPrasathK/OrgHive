@@ -52,9 +52,10 @@ function EventsinProgressCustomer(){
     useEffect(()=>{
         console.log(username);
         apiEventsInProgressCustomer({username:username}).then((data)=>{
-            console.log(data.data.data);
             setepcdata(data.data.data);
-            setshowepc(true);
+            if ((data.data.data).length>0){
+                setshowepc(true);
+            }
         })
     },[])
 
@@ -64,8 +65,11 @@ function EventsinProgressCustomer(){
             <Navbar />
             <h1>Events In Progress</h1>
         </div>
+        <div className={`${styles.stars_1}`}></div>
+        <div className={`${styles.stars_2}`}></div>
+        <div className={`${styles.stars_3}`}></div>
         <br /><br />
-        {showepc?<Epc epcdata={epcdata}/>:<>No events in progress</>}
+        {showepc?<Epc epcdata={epcdata}/>:<div className="eventCard"><h1>No event in progress :)</h1></div>}
 
         <Footer />
         </>  

@@ -58,7 +58,9 @@ function EventsinProgressOrganizer(){
         apiEventsInProgressOrganizer({orgid:orgid}).then((data)=>{
             console.log(data.data.data);
             setepcdata(data.data.data);
-            setshowepc(true);
+            if ((data.data.data).length>0){
+                setshowepc(true);
+            }
         })
     },[])
     return (
@@ -68,8 +70,11 @@ function EventsinProgressOrganizer(){
             <h1>Events In Progress</h1>
             <h4>Or payment yet to be made</h4>
         </div>
-        <br /><br />
-        {showepc?<Epc epcdata={epcdata}/>:<>No events in progress</>}
+        <div className="stars_1"></div>
+        <div className="stars_2"></div>
+        <div className="stars_3"></div>
+        <br/><br/>
+        {showepc?<Epc epcdata={epcdata}/>:<div className="eventCard"><h1>No event in progress :)</h1></div>}
         <Footer />
         </>  
     )

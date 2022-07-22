@@ -4,18 +4,35 @@ body{
   background-image:url("http://localhost:3000/images/filler.jpg");
   background-size: cover;
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f51269c5; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(170, 169, 169); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 .card {
     /* Add shadows to create the "card" effect */
     background-color:#f51269c5 ;
-    width: 40%;
-    margin: auto;
+    width: 50%;
+    margin: 15vh auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 20px;
     position: relative;
     z-index: 1;
     padding: 5px 0 10px;
-    margin-top: 5vh;
   }
   
   /* On mouse-over, add a deeper shadow */
@@ -26,8 +43,9 @@ body{
   /* Add some padding inside the card container */
   .content {
     color: white;
-    font-weight: bold;
-    padding: 2px 16px;
+    font-weight: bolder;
+    font-size: larger;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
 .head{
@@ -37,14 +55,27 @@ body{
     text-shadow: 3px 3px 3px #1492cc;
 }
 .inputfields{
-    width:60%;
-    font-size: larger;
+    width:30%;
+    font-size:x-large;
     border-radius: 60px;
     border:2px solid #1492cc;
     height: 40px;
     padding: 0 20px;
 }
-
+.table{
+  margin: auto;
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tr:nth-child(even){
+  background-color: rgba(242, 245, 248, 0.171);
+}
+.table td{
+  padding: 8px 5px 8px 25px;
+  width:50%;
+  border-collapse: collapse;
+}
 .stars_1 {
   width: 3px;
   height: 3px;

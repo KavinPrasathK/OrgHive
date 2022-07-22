@@ -11,6 +11,8 @@ import Footer from '../../components/Footer/Footer';
 function Progressitem(props) {
 
     return (
+    <>
+    
     <div className={`${styles.card}`}>
         <div className={`${styles.container}`} >
             <h3>{props.msg}</h3><br />
@@ -20,6 +22,7 @@ function Progressitem(props) {
  
 
     </div>
+    </>
     )
 }
 
@@ -70,6 +73,9 @@ function ProgressOrganizer() {
             <Navbar />
             <h1>EVENT ID : {eventid}</h1>
         </div>
+        <div className="stars_1"></div>
+        <div className="stars_2"></div>
+        <div className="stars_3"></div>
         <br /><br />
 
         <textarea className={`${styles.txtar}`}  value={addprogress} onChange={handleprog} /><br />

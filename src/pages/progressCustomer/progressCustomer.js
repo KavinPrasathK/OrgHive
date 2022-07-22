@@ -163,12 +163,14 @@ function ProgressCustomer() {
             <Navbar />
             <h1>EVENT ID : {eventid}</h1>
         </div>
+        <div className="stars_1"></div>
+        <div className="stars_2"></div>
+        <div className="stars_3"></div>
         <br /><br />
-        {showprog?<Progress pdata={pdata.data} />:<>No message available yet</>}
+        {showprog?<Progress pdata={pdata.data} />:<>No messages received from the Organizer yet</>}
         <br/><br/>
         {showpay?<>
-            {/* <input type='number' value={mkp} onChange={handlemkp} /> */}
-            <h2 className={`${styles.rat}`} >Rating :</h2><h4 style={{color:'white'}}>How was your experience? Please rate on a scale of 5</h4><Rate rate={rate} setRate={setRate} />
+            <h2 className={`${styles.rat}`} >Rating :</h2><h4 style={{color:'white'}}>How was your experience? Please rate on a scale of 5!</h4><Rate rate={rate} setRate={setRate} />
             <input className={`${styles.bo}`} type='button' value='Make Payment' onClick={()=>confirmAlert(options)} />
         </>:<></>}
         <br /><br/><br />

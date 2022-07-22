@@ -44,6 +44,20 @@ body{
     height: 40px;
     padding: 0 20px;
 }
+.table{
+  margin: auto;
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tr:nth-child(even){
+  background-color: rgba(242, 245, 248, 0.171);
+}
+.table td{
+  padding: 8px 5px 8px 25px;
+  width:50%;
+  border-collapse: collapse;
+}
 
 .stars_1 {
   width: 3px;

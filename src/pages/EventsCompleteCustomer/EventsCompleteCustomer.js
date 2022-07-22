@@ -46,7 +46,9 @@ function EventsCompleteCustomer(){
         apiEventsCompleteCustomer({username:username}).then((data)=>{
             console.log(data.data.data);
             seteccdata(data.data.data);
-            setshowecc(true);
+            if ((data.data.data).length>0){
+                setshowecc(true);
+            }
         })
     },[])
 
@@ -56,8 +58,11 @@ function EventsCompleteCustomer(){
             <Navbar />
             <h1>Events Completed</h1>
         </div>
+        <div className="stars_1"></div>
+        <div className="stars_2"></div>
+        <div className="stars_3"></div>
         <br /><br />
-        {showecc?<Ecc eccdata={eccdata}/>:<>No events in progress</>}
+        {showecc?<Ecc eccdata={eccdata}/>:<div className="eventCard"><h1>No Completed Event :)</h1></div>}
         <Footer/>
         
         </>  
