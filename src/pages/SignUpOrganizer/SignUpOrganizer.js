@@ -7,6 +7,8 @@ import { apiSignUpOrganizer } from "../../auth/auth";
 import { useNavigate } from "react-router-dom";
 import cryptoRandomString from 'crypto-random-string';
 import ButtonOrg from '../../components/Button/ButtonOrg';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 function SignUpOrganizer() {
   var navigate = useNavigate();
@@ -136,6 +138,7 @@ function SignUpOrganizer() {
     var eventData = {...events};
     console.log(eventData);
     var x = formValidate(data,eventData);
+    
     var orgID = 'ORG'+cryptoRandomString({length:5, type:'alphanumeric'})+cryptoRandomString({length:2, type:'numeric'});
     data = {...signUpOrganizerData,eventsdata:eventData,orgId : orgID};
     // console.log(data);
@@ -143,12 +146,35 @@ function SignUpOrganizer() {
       const res = await apiSignUpOrganizer(data);
       if (res.status>=200 && res.status<=299){
         navigate('/');
+        const options = {
+          title: 'NOTE:',
+          message: res.data.message+'\n\n\nPlease make note of the Organizer ID for future login!',
+          buttons: [
+            {
+              label: 'Done',
+              onClick: () => navigate('/')
+            }
+          ],
+          closeOnEscape: true,
+          closeOnClickOutside: true,
+          keyCodeForClose: [8, 32],
+          willUnmount: () => {},
+          afterClose: () => {Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag,dismiss: {
+            duration: 10000,
+            onScreen: true
+          }});},
+          onClickOutside: () => {},
+          onKeypress: () => {},
+          onKeypressEscape: () => {},
+          overlayClassName: "overlay-custom-class-name"
+        };
+        confirmAlert(options);
       }
       // console.log(res.data.message,+res.data.flag);
-      Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag,dismiss: {
-        duration: 10000,
-        onScreen: true
-    }});
+      // Store.addNotification({...toastNotification,message:res.data.message,type:res.data.flag,dismiss: {
+      //   duration: 10000,
+      //   onScreen: true
+      // }});
     };  
   }
 

@@ -51,7 +51,9 @@ function Login() {
           <label>User Name : <br /><br /><input type='text' name='userName' onChange={handleChange} value={loginCustomerData.userName} className={`${styles.inputfields}`} /></label><br /><br />
           <label>Password : <br /><br /><input type='password' name='password' onChange={handleChange} value={loginCustomerData.password} className={`${styles.inputfields}`} /></label><br /><br />
           <ButtonCust text='Login' func={onSubmit} /><br/><br/>
-          Don't have an account? <a href='/SignUpCustomer'>Sign Up</a>
+          <a style={{color:"#1492cc",textDecoration:'none'}} href='/ForgotPasswordCust'>Forgot Password</a>
+          <br/><br/>
+          Don't have an account? <a style={{color:"#1492cc",textDecoration:'none'}} href='/SignUpCustomer'>Sign Up</a>
         </div>
       </div>
     </div>

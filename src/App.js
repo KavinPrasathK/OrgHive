@@ -7,6 +7,10 @@ import SignUpCustomer from './pages/SignUpCustomer/SignUpCustomer';
 import SignUpOrganizer from './pages/SignUpOrganizer/SignUpOrganizer';
 import LoginCustomer from "./pages/LoginCustomer/LoginCustomer";
 import LoginOrganizer from './pages/LoginOrganizer/LoginOrganizer';
+import ForgotPasswordCust from './pages/ForgotPasswordCust/ForgotPasswordCust';
+import ChangePasswordCust from './pages/ChangePasswordCust/ChangePasswordCust';
+import ForgotPasswordOrg from './pages/ForgotPasswordOrg/ForgotPasswordOrg';
+import ChangePasswordOrg from './pages/ChangePasswordOrg/ChangePasswordOrg';
 import Landing from "./pages/Landing/Landing";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import ProfileCustomer from './pages/ProfileCustomer/ProfileCustomer';
@@ -42,7 +46,7 @@ function App() {
   }else{
     localStorage.setItem('loginState',1);
     x=1;
-    console.log('hiii');
+    // console.log('hiii');
   }
   
 
@@ -91,9 +95,7 @@ const CustRoutes = () => {
       <Route path='/eventsinprogress' element={<EventsinProgressCustomer />} />
       <Route path='eventsComplete' element={<EventsCompleteCustomer />} />
       <Route path='/AcceptEventCustomer' element={<AcceptEventCustomer />} />
-      {/* <Route path="/aco/:eventid" element={<AcceptEventCust/>}/> */}
       <Route path="/aec/:urldata" element={<AcceptEventCust/>}/>
-
       <Route path="/*" element={<PageNotFound />} />
 
     </Routes>
@@ -123,6 +125,10 @@ const LogoutRoutes = () =>{
       <Route path='/SignUpOrganizer' element={<SignUpOrganizer/>}/>
       <Route path="/loginCustomer" element={<LoginCustomer />} />
       <Route path="/loginOrganizer" element={<LoginOrganizer/>} />
+      <Route path="/ForgotPasswordCust" element={<ForgotPasswordCust />} />
+      <Route path="/ChangePasswordCust" element={<ChangePasswordCust/>} />
+      <Route path="/ForgotPasswordOrg" element={<ForgotPasswordOrg />} />
+      <Route path="/ChangePasswordOrg" element={<ChangePasswordOrg/>} />
       <Route path="/profile" element={<PageNotFound />} />
       <Route path="/*" element={<PageNotFound />} />
     </Routes>

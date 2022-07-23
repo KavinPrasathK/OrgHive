@@ -25,7 +25,7 @@ function Login() {
 
   const onSubmit = async() =>{      
       var data=loginOrganizerData;
-      console.log(data);
+      // console.log(data);
       const res=await apiLoginOrganizer(data);
       if(res.status>=200 && res.status<=299){
         localStorage.clear();
@@ -48,7 +48,9 @@ function Login() {
         <label>Organizer-ID : <br/><br/><input type='text' name='orgId' onChange={handleChange} value={loginOrganizerData.orgId} className={`${styles.inputfields}`}/></label><br/><br/>
         <label>Password : <br/><br/><input type='password' name='password' onChange={handleChange} value={loginOrganizerData.password} className={`${styles.inputfields}`}/></label><br/><br/>
         <ButtonOrg text='Login' func={onSubmit} /><br/><br/>
-        Don't have an account? <a href='/SignUpOrganizer'>Sign Up</a>
+        <a style={{color:"#f51269",textDecoration:'none'}} href='/ForgotPasswordOrg'>Forgot Password / Org. ID</a>
+          <br/><br/>
+          Don't have an account? <a style={{color:"#f51269",textDecoration:'none'}} href='/SignUpOrganizer'>Sign Up</a>
         </div>
       </div>
   </div>

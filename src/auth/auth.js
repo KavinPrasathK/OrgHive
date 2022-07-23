@@ -258,3 +258,43 @@ export const apiMakePayment = async(amt) => {
     return error.response;
   }
 }
+
+export const apiSendMailCust = async(data) => {
+  try{
+    const response =await api.post('sendMailCust',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiUpdatePwCust = async(data) => {
+  try{
+    const response =await api.post('updatePwCust',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiSendMailOrg = async(data) => {
+  try{
+    const response =await api.post('sendMailOrg',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
+
+export const apiUpdatePwOrg = async(data) => {
+  try{
+    const response =await api.post('updatePwOrg',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}
