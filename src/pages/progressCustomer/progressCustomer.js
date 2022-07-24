@@ -150,7 +150,7 @@ function ProgressCustomer() {
         Store.addNotification({...toastNotification,message:result1.data.message,type:result1.data.flag})
         if(result1.status>=200 && result1.status<=299){
             navigate('/eventsComplete');
-            window.print();
+            // window.print();
 
         }else{
             navigate('/profile');
