@@ -8,6 +8,7 @@ import { toastNotification } from '../../components/Notifications/toast';
 import { apiCreateEventCustomer, apiGetOrganizerDataCreateEventCustomer } from '../../auth/auth';
 import cryptoRandomString from 'crypto-random-string';
 import Navbar from '../../components/Navbar/Navbar';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import ButtonCust from '../../components/Button/ButtonCust'
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
@@ -187,9 +188,7 @@ function CreateEventCustomer() {
         <Navbar />
       </div>
       <div className={`${styles.outercard}`}>
-        <div className={`${styles.stars_1}`}></div>
-        <div className={`${styles.stars_2}`}></div>
-        <div className={`${styles.stars_3}`}></div>
+      <BgSnowAnim />
         <div className={`${styles.card}`}>
           <h1 className={`${styles.head}`}>POST EVENT</h1>
           <div className={`${styles.content}`} >

@@ -9,7 +9,7 @@ import 'react-notifications-component/dist/theme.css'
 import { toastNotification } from '../../components/Notifications/toast';
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
-// import Rate from '../../components/Rating/Rating';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import Footer from '../../components/Footer/Footer';
 
 
@@ -142,15 +142,12 @@ function ProgressCustomer() {
     }
 
     const makepayment=async () => {
-        // Window.confirm('asd');
-        
-        // alert('asdee');
         const result1=await apiMakePayment({amt:mkp,eventid:eventid,rating:rate});
         console.log(result1);
         Store.addNotification({...toastNotification,message:result1.data.message,type:result1.data.flag})
         if(result1.status>=200 && result1.status<=299){
             navigate('/eventsComplete');
-            window.print();
+            // window.print();
 
         }else{
             navigate('/profile');
@@ -163,9 +160,7 @@ function ProgressCustomer() {
             <Navbar />
             <h1>EVENT ID : {eventid}</h1>
         </div>
-        <div className="stars_1"></div>
-        <div className="stars_2"></div>
-        <div className="stars_3"></div>
+        <BgSnowAnim/>
         <br /><br />
         {showprog?<Progress pdata={pdata.data} />:<>No messages received from the Organizer yet</>}
         <br/><br/>

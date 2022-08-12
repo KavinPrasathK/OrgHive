@@ -298,3 +298,13 @@ export const apiUpdatePwOrg = async(data) => {
     return error.response;
   }
 }
+
+export const apiGcaptcha = async(data) => {
+  try{
+    const response =await api.post('Gcaptcha',data);
+    return response;
+  }
+  catch(error){
+    return error.response;
+  }
+}

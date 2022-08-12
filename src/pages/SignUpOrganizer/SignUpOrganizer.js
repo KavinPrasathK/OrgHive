@@ -9,6 +9,7 @@ import cryptoRandomString from 'crypto-random-string';
 import ButtonOrg from '../../components/Button/ButtonOrg';
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 
 function SignUpOrganizer() {
   var navigate = useNavigate();
@@ -180,9 +181,7 @@ function SignUpOrganizer() {
 
   return (
     <div>
-    <div className={`${styles.stars_1}`}></div>
-    <div className={`${styles.stars_2}`}></div>
-    <div className={`${styles.stars_3}`}></div>
+    <BgSnowAnim/>
     <div className={`${styles.card}`} >
     <div className={`${styles.cardchild}`}>
       <h1 className={`${styles.head}`}>SIGN UP</h1>

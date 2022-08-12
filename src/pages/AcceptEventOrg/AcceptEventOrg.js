@@ -5,6 +5,7 @@ import { apiEventDetail, apiDeleteReqOrg, apiAcceptReqOrg } from '../../auth/aut
 import { ReactNotifications, Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import { toastNotification } from '../../components/Notifications/toast';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import ButtonCust from '../../components/Button/ButtonCust';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from '../../components/Footer/Footer';
@@ -71,9 +72,7 @@ function AcceptEventOrg() {
                 <Navbar /><br />
                 <h1>Event {eventid}</h1>
             </div>
-            <div className="stars_1"></div>
-            <div className="stars_2"></div>
-            <div className="stars_3"></div>
+            <BgSnowAnim/>
             {events.map((item) => {
                 return (fetched) ? (
                     <div>

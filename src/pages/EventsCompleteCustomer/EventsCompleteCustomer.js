@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiEventsCompleteCustomer } from "../../auth/auth";
 import Navbar from '../../components/Navbar/Navbar';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import styles from "./EventsCompleteCustomer.module.css"
 import Footer from '../../components/Footer/Footer';
 
@@ -17,7 +18,6 @@ function Eccitem(props) {
             <span className={`${styles.subhead}`}>Event Id : </span>{props.eventid}<br />
             <span className={`${styles.subhead}`}>Organizer Name : </span>{props.orgname}<br />
             <span className={`${styles.subhead}`}>Description : </span>{props.description}<br />
-
         </div>
  
 
@@ -58,9 +58,7 @@ function EventsCompleteCustomer(){
             <Navbar />
             <h1>Events Completed</h1>
         </div>
-        <div className="stars_1"></div>
-        <div className="stars_2"></div>
-        <div className="stars_3"></div>
+        <BgSnowAnim/>
         <br /><br />
         {showecc?<Ecc eccdata={eccdata}/>:<div className="eventCard"><h1>No Completed Event :)</h1></div>}
         <Footer/>

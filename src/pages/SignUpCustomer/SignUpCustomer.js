@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from "./SignUpCustomer.module.css";
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
-import { ReactNotifications, Store } from 'react-notifications-component'
-import 'react-notifications-component/dist/theme.css'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { ReactNotifications, Store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 import { toastNotification } from '../../components/Notifications/toast';
 import { apiSignUpCustomer } from '../../auth/auth';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import ButtonCust from '../../components/Button/ButtonCust'
 // import { Portal } from "react-overlays";
 
@@ -137,9 +138,7 @@ function SignUpCustomer() {
 
   return (
     <div>
-    <div className={`${styles.stars_1}`}></div>
-    <div className={`${styles.stars_2}`}></div>
-    <div className={`${styles.stars_3}`}></div>
+    <BgSnowAnim/>
     <div className={`${styles.card}`}>
     <div className={`${styles.cardchild}`}>
             <h1 className={`${styles.head}`}>SIGN UP</h1>

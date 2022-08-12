@@ -6,6 +6,7 @@ import { ReactNotifications, Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import { toastNotification } from '../../components/Notifications/toast';
 import ButtonCust from '../../components/Button/ButtonCust';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from '../../components/Footer/Footer';
 
@@ -39,9 +40,7 @@ function AcceptEventsOrganizer() {
                 <h2>Hello {orgId}!</h2>
                 <h1>Events in your Queue</h1>
             </div>
-            <div className="stars_1"></div>
-            <div className="stars_2"></div>
-            <div className="stars_3"></div>
+            <BgSnowAnim/>
             <div className={(eventAvl) ? "eventCardHidden" : "eventCard"}><h2>No events found in your queue!</h2></div>
             <div>
                 {eventData.map((item, i) => {

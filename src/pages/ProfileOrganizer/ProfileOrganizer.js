@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { apiGetOrganizerProfile } from '../../auth/auth';
 import styles from "./ProfileOrganizer.module.css";
 import Navbar from '../../components/Navbar/Navbar';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import Footer from '../../components/Footer/Footer';
 
 function Prof(data) {
@@ -11,9 +12,7 @@ function Prof(data) {
       <div style={{ position: "relative", zIndex: '1' }}>
         <Navbar />
       </div>
-      <div className={`${styles.stars_1}`}></div>
-      <div className={`${styles.stars_2}`}></div>
-      <div className={`${styles.stars_3}`}></div>
+      <BgSnowAnim/>
       <div className={`${styles.card}`}>
         <h1 className={`${styles.head}`}>PROFILE</h1>
         <div className={`${styles.content}`} >

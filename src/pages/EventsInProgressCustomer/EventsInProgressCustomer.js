@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiEventsInProgressCustomer } from "../../auth/auth";
 import Navbar from '../../components/Navbar/Navbar';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import styles from "./EventsInProgressCustomer.module.css"
 import Footer from '../../components/Footer/Footer';
 
@@ -65,9 +66,7 @@ function EventsinProgressCustomer(){
             <Navbar />
             <h1>Events In Progress</h1>
         </div>
-        <div className={`${styles.stars_1}`}></div>
-        <div className={`${styles.stars_2}`}></div>
-        <div className={`${styles.stars_3}`}></div>
+        <BgSnowAnim />
         <br /><br />
         {showepc?<Epc epcdata={epcdata}/>:<div className="eventCard"><h1>No event in progress :)</h1></div>}
 

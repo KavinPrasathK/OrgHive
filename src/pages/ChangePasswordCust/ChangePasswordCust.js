@@ -6,6 +6,7 @@ import { ReactNotifications, Store } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { toastNotification } from '../../components/Notifications/toast';
 import ButtonCust from '../../components/Button/ButtonCust';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import {useNavigate} from 'react-router-dom';
 
 
@@ -34,9 +35,7 @@ function ChangePasswordCust() {
       
   return (
     <div>
-    <div className={`${styles.stars_1}`}></div>
-    <div className={`${styles.stars_2}`}></div>
-    <div className={`${styles.stars_3}`}></div>
+    <BgSnowAnim/>
       <div className={`${styles.card}`}>
 
         <h1 className={`${styles.head}`}>Update Password</h1>

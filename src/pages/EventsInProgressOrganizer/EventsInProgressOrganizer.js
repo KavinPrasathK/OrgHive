@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiEventsInProgressOrganizer } from "../../auth/auth";
 import Navbar from '../../components/Navbar/Navbar';
-import styles from "./EventsInProgressOrganizer.module.css"
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
+import styles from "./EventsInProgressOrganizer.module.css";
 import Footer from '../../components/Footer/Footer';
 
 
@@ -70,9 +71,7 @@ function EventsinProgressOrganizer(){
             <h1>Events In Progress</h1>
             <h4>Or payment yet to be made</h4>
         </div>
-        <div className="stars_1"></div>
-        <div className="stars_2"></div>
-        <div className="stars_3"></div>
+        <BgSnowAnim/>
         <br/><br/>
         {showepc?<Epc epcdata={epcdata}/>:<div className="eventCard"><h1>No event in progress :)</h1></div>}
         <Footer />

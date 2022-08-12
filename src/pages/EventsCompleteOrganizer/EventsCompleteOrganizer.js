@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import styles from "./EventsCompleteOrganizer.module.css";
 import { useNavigate } from "react-router-dom";
 import { apiEventsCompleteOrganizer } from "../../auth/auth";
 import Navbar from '../../components/Navbar/Navbar';
-import styles from "./EventsCompleteOrganizer.module.css"
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import Footer from '../../components/Footer/Footer';
 
 
@@ -54,9 +55,7 @@ function EventsCompleteOrganizer(){
             <Navbar />
             <h1>Events Completed</h1>
         </div>
-        <div className="stars_1"></div>
-        <div className="stars_2"></div>
-        <div className="stars_3"></div>
+        <BgSnowAnim/>
         <br /><br />
         {showecc?<Ecc eccdata={eccdata}/>:<div className="eventCard"><h1>No Completed Event :)</h1></div>}
         <Footer />

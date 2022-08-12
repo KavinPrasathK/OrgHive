@@ -6,6 +6,7 @@ import { ReactNotifications, Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import { toastNotification } from '../../components/Notifications/toast';
 import ButtonCust from '../../components/Button/ButtonCust';
+import BgSnowAnim from '../../components/BgSnowAnim/BgSnowAnim';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from '../../components/Footer/Footer';
 
@@ -38,9 +39,7 @@ function AcceptEventCustomer() {
                 <h2>Hello {username}!</h2>
                 <h1>Event Requests to be accepted</h1>
             </div>
-            <div className="stars_1"></div>
-            <div className="stars_2"></div>
-            <div className="stars_3"></div>
+            <BgSnowAnim />
             <div className={(eventAvl)?"eventCardHidden":"eventCard"}><h1>No event founds!</h1><br/>
             <button className="buttonAE" onClick={()=>navigate('/createEventCustomer')}>Add Event</button><br/></div>
             <div className='contentDiv'>
