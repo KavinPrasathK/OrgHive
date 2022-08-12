@@ -9,15 +9,27 @@ import Footer from '../../components/Footer/Footer';
 
 function Eccitem(props) {
     let navigate=useNavigate();
-
-
+    var x=false;
+    if(props.tdate){
+        var t=props.tdate;
+        t=t.slice(0,10);
+        x=true;
+    }
+    var s=props.fdate;
+    s=s.slice(0,10);
     return (
     <div className={`${styles.card}`} >
         <div className={`${styles.container}`} >
             <h3>{props.eventname.toUpperCase()}</h3><br />
             <span className={`${styles.subhead}`}>Event Id : </span>{props.eventid}<br />
-            <span className={`${styles.subhead}`}>Organizer Name : </span>{props.orgname}<br />
-            <span className={`${styles.subhead}`}>Description : </span>{props.description}<br />
+            <span className={`${styles.subhead}`}>Customer : </span>{props.customer}<br />
+            <span className={`${styles.subhead}`}>{x?<>Start Date : </>:<>Date : </>} </span>{s}<br />
+            
+            {x?<><span className={`${styles.subhead}`}>To Date : </span>{t}<br /></>:<></>}
+            <span className={`${styles.subhead}`}>Amount Received : </span>{props.amtrecieved}<br />
+
+            {/* <span className={`${styles.subhead}`}>Organizer Name : </span>{props.orgname}<br /> */}
+            {/* <span className={`${styles.subhead}`}>Description : </span>{props.description}<br /> */}
         </div>
     </div>
     )
@@ -26,7 +38,9 @@ function Eccitem(props) {
 function Ecc(props){
     var arr=props.eccdata;
     var newarr=arr.map((item,i) => {
-        return <><Eccitem  eventname={item.EVENTNAME} eventid={item.EVENTID} orgname={item.NAME} description={item.DESCRIPTION}/><br/></>
+        return <><Eccitem  eventname={item.EVENTNAME} eventid={item.EVENTID} orgname={item.NAME} description={item.DESCRIPTION}
+                            amtrecieved={item.BUDGET} customer={item.USERNAME} fdate={item.FROMDATE} tdate={item.TODATE}
+        /><br/></>
     })
     return(
         newarr
